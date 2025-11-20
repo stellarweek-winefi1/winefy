@@ -120,25 +120,25 @@ export default function DigitalizarPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white py-6 sm:py-8 md:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-black">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-black px-4">
             Digitaliza tu <span className="text-black">Cosecha</span>
           </h1>
-          <p className="text-xl text-black">
+          <p className="text-base sm:text-lg md:text-xl text-black px-4">
             Convierte tus vinos en activos digitales y accede a capital inmediato
           </p>
         </motion.div>
 
         {/* Step Indicators */}
-        <div className="grid grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 md:mb-12">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isActive = currentStep === step.id;
@@ -148,7 +148,7 @@ export default function DigitalizarPage() {
               <motion.div
                 key={step.id}
                 className={cn(
-                  "rounded-2xl p-6 border-2 transition-all duration-300 cursor-pointer",
+                  "rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border-2 transition-all duration-300 cursor-pointer",
                   isActive
                     ? "bg-black text-white border-black"
                     : isCompleted
@@ -163,7 +163,7 @@ export default function DigitalizarPage() {
                 <div className="flex flex-col items-center text-center">
                   <div
                     className={cn(
-                      "w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-colors",
+                      "w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 transition-colors",
                       isActive
                         ? "bg-white bg-opacity-20"
                         : isCompleted
@@ -171,11 +171,11 @@ export default function DigitalizarPage() {
                         : "bg-gray-100"
                     )}
                   >
-                    <Icon className="w-6 h-6" aria-hidden="true" />
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" aria-hidden="true" />
                   </div>
-                  <div className="font-semibold text-sm mb-1">{step.title}</div>
+                  <div className="font-semibold text-xs sm:text-sm mb-0.5 sm:mb-1">{step.title}</div>
                   <div className={cn(
-                    "text-xs",
+                    "text-[10px] sm:text-xs leading-tight",
                     isActive ? "text-white" : "text-black"
                   )}>
                     {step.description}
@@ -188,14 +188,14 @@ export default function DigitalizarPage() {
 
         {/* Form Content */}
         <motion.div
-          className="bg-white rounded-2xl shadow-md p-8 border border-black"
+          className="bg-white rounded-2xl shadow-md p-4 sm:p-6 md:p-8 border border-black"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           {currentStep === 1 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6 text-black">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5 md:mb-6 text-black">
                 Información del Vino
               </h2>
 
@@ -320,7 +320,7 @@ export default function DigitalizarPage() {
 
           {currentStep === 2 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6 text-black">Documentación</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5 md:mb-6 text-black">Documentación</h2>
               
               {/* Hidden file input */}
               <input
@@ -415,7 +415,7 @@ export default function DigitalizarPage() {
 
           {currentStep === 3 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6 text-black">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5 md:mb-6 text-black">
                 Precio y Digitalización
               </h2>
               <div className="text-center py-12">
@@ -437,7 +437,7 @@ export default function DigitalizarPage() {
 
           {currentStep === 4 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6 text-black">Confirmar</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5 md:mb-6 text-black">Confirmar</h2>
               <div className="space-y-4">
                 <div className="bg-gray-50 rounded-xl p-6 border border-black">
                   <h3 className="font-semibold mb-4 text-black">Resumen de Digitalización</h3>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WineCard from "@/components/WineCard";
 
 const wines = [
@@ -45,34 +45,41 @@ const wines = [
 
 export default function MercadoPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [displayedWines, setDisplayedWines] = useState(wines);
 
-  const filteredWines = wines.filter((wine) =>
-    wine.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    wine.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    wine.country.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  useEffect(() => {
+    // Filter wines based on search query
+    const filtered = wines.filter((wine) =>
+      wine.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      wine.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      wine.country.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setDisplayedWines(filtered);
+  }, [searchQuery]);
+
+  const filteredWines = displayedWines;
 
   return (
     <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-black">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-black px-4">
             Vinos Disponibles
           </h1>
-          <p className="text-xl text-black max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-black max-w-3xl mx-auto px-4">
             Explora nuestra selección de vinos premium disponibles para inversión
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="mb-12">
+        <div className="mb-6 sm:mb-8 md:mb-12 px-4">
           <div className="relative max-w-2xl mx-auto">
             <label htmlFor="search-wines" className="sr-only">
               Buscar vinos por nombre, región o tipo
             </label>
             <Search
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black"
+              className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-black"
               aria-hidden="true"
             />
             <input
@@ -81,26 +88,43 @@ export default function MercadoPage() {
               placeholder="Buscar por nombre, región o tipo..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-lg"
+              className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-base sm:text-lg"
               aria-label="Buscar vinos"
             />
           </div>
         </div>
 
         {/* Wine Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredWines.length > 0 ? (
-            filteredWines.map((wine) => (
+        {filteredWines.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            {filteredWines.map((wine) => (
               <WineCard key={wine.id} {...wine} />
-            ))
-          ) : (
-            <div className="col-span-full text-center py-12">
-              <p className="text-xl text-black">
-                No se encontraron vinos que coincidan con tu búsqueda.
-              </p>
-            </div>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-xl text-black mb-4">
+              No se encontraron vinos que coincidan con tu búsqueda.
+            </p>
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="text-black underline hover:text-gray-800"
+              >
+                Limpiar búsqueda
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Show count if there are wines */}
+        {filteredWines.length > 0 && (
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-600">
+              Mostrando {filteredWines.length} {filteredWines.length === 1 ? "vino" : "vinos"} disponible{filteredWines.length === 1 ? "" : "s"}
+            </p>
+          </div>
+        )}
       </div>
     </main>
   );

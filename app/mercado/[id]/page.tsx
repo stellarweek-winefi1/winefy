@@ -171,14 +171,14 @@ export default function InvestmentPage() {
   const availabilityPercentage = (wine.available / wine.total) * 100;
 
   return (
-    <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white py-6 sm:py-8 md:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Back Button */}
         <Link
           href="/mercado"
-          className="inline-flex items-center gap-2 text-black hover:text-gray-800 mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-black hover:text-gray-800 mb-4 sm:mb-6 md:mb-8 transition-colors text-sm sm:text-base"
         >
-          <ArrowLeft className="w-5 h-5" aria-hidden="true" />
+          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
           <span className="font-medium">Volver al mercado</span>
         </Link>
 
@@ -186,21 +186,21 @@ export default function InvestmentPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white border-2 border-black rounded-2xl p-12 text-center"
+            className="bg-white border-2 border-black rounded-2xl p-6 sm:p-8 md:p-12 text-center"
           >
-            <CheckCircle className="w-20 h-20 text-black mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-black mb-4">
+            <CheckCircle className="w-16 h-16 sm:w-20 sm:h-20 text-black mx-auto mb-4 sm:mb-6" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3 sm:mb-4">
               ¡Inversión realizada con éxito!
             </h2>
-            <p className="text-lg text-black mb-8">
+            <p className="text-base sm:text-lg text-black mb-6 sm:mb-8">
               Has invertido en {numUnits} unidades de {wine.name}
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs sm:text-sm text-gray-600">
               Redirigiendo a tu portafolio...
             </p>
           </motion.div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {/* Wine Details */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -208,48 +208,48 @@ export default function InvestmentPage() {
               className="bg-white border-2 border-black rounded-2xl overflow-hidden"
             >
               {/* Wine Image */}
-              <div className="bg-black h-64 flex items-center justify-center">
-                <div className="text-8xl" role="img" aria-label="Vino">
+              <div className="bg-black h-48 sm:h-56 md:h-64 flex items-center justify-center">
+                <div className="text-6xl sm:text-7xl md:text-8xl" role="img" aria-label="Vino">
                   🍷
                 </div>
               </div>
 
               {/* Wine Info */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <h1 className="text-3xl font-bold text-black flex-1">
+              <div className="p-4 sm:p-5 md:p-6">
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-black flex-1 pr-2">
                     {wine.name}
                   </h1>
-                  <div className="bg-black text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 ml-4">
+                  <div className="bg-black text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-semibold text-sm sm:text-base flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
                     <span aria-hidden="true">⭐</span>
                     <span>{wine.rating}</span>
                   </div>
                 </div>
 
                 {/* Location */}
-                <div className="flex items-center gap-2 text-black mb-6">
-                  <span className="text-xl">{wine.countryFlag}</span>
-                  <MapPin className="w-5 h-5" aria-hidden="true" />
-                  <span className="text-base">{wine.region}, {wine.country}</span>
+                <div className="flex items-center gap-2 text-black mb-4 sm:mb-5 md:mb-6">
+                  <span className="text-lg sm:text-xl flex-shrink-0">{wine.countryFlag}</span>
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-sm sm:text-base truncate">{wine.region}, {wine.country}</span>
                 </div>
 
                 {/* Description */}
                 {wine.description && (
-                  <p className="text-black mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base text-black mb-4 sm:mb-5 md:mb-6 leading-relaxed">
                     {wine.description}
                   </p>
                 )}
 
                 {/* Price and Return */}
-                <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6 p-3 sm:p-4 bg-gray-50 rounded-lg">
                   <div>
                     <div className="text-xs text-black mb-1">Precio/Unidad</div>
-                    <div className="text-2xl font-bold text-black">${wine.pricePerUnit}</div>
+                    <div className="text-xl sm:text-2xl font-bold text-black">${wine.pricePerUnit}</div>
                   </div>
                   <div>
                     <div className="text-xs text-black mb-1">Retorno Anual</div>
-                    <div className="text-2xl font-bold text-black flex items-center gap-1">
-                      <TrendingUp className="w-5 h-5" aria-hidden="true" />
+                    <div className="text-xl sm:text-2xl font-bold text-black flex items-center gap-1">
+                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
                       {wine.annualReturn}%
                     </div>
                   </div>
@@ -281,15 +281,15 @@ export default function InvestmentPage() {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white border-2 border-black rounded-2xl p-8"
+              className="bg-white border-2 border-black rounded-2xl p-4 sm:p-6 md:p-8"
             >
-              <h2 className="text-2xl font-bold text-black mb-6 flex items-center gap-2">
-                <Calculator className="w-6 h-6" aria-hidden="true" />
+              <h2 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-5 md:mb-6 flex items-center gap-2">
+                <Calculator className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 Realizar Inversión
               </h2>
 
               {/* Investment Amount Input */}
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-5 md:mb-6">
                 <label
                   htmlFor="investment-amount"
                   className="block text-sm font-medium text-black mb-2"
@@ -297,7 +297,7 @@ export default function InvestmentPage() {
                   Monto de Inversión (USD)
                 </label>
                 <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-black font-semibold">
+                  <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-black font-semibold">
                     $
                   </span>
                   <input
@@ -307,7 +307,7 @@ export default function InvestmentPage() {
                     value={investmentAmount}
                     onChange={(e) => handleInvestmentAmountChange(e.target.value)}
                     placeholder="0.00"
-                    className="w-full pl-8 pr-4 py-3 rounded-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-black text-lg font-semibold"
+                    className="w-full pl-7 sm:pl-8 pr-4 py-2.5 sm:py-3 rounded-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-black text-base sm:text-lg font-semibold"
                     aria-label="Monto de inversión en dólares"
                   />
                 </div>
@@ -317,7 +317,7 @@ export default function InvestmentPage() {
               </div>
 
               {/* Units Input */}
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-5 md:mb-6">
                 <label
                   htmlFor="units"
                   className="block text-sm font-medium text-black mb-2"
@@ -331,7 +331,7 @@ export default function InvestmentPage() {
                   value={units}
                   onChange={(e) => handleUnitsChange(e.target.value)}
                   placeholder="0"
-                  className="w-full px-4 py-3 rounded-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-black text-lg font-semibold"
+                  className="w-full px-4 py-2.5 sm:py-3 rounded-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-black text-base sm:text-lg font-semibold"
                   aria-label="Número de unidades a comprar"
                 />
                 <p className="text-xs text-gray-600 mt-1">
@@ -344,28 +344,28 @@ export default function InvestmentPage() {
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
-                  className="bg-gray-50 border-2 border-black rounded-lg p-6 mb-6"
+                  className="bg-gray-50 border-2 border-black rounded-lg p-4 sm:p-5 md:p-6 mb-4 sm:mb-5 md:mb-6"
                 >
-                  <h3 className="text-lg font-semibold text-black mb-4">
+                  <h3 className="text-base sm:text-lg font-semibold text-black mb-3 sm:mb-4">
                     Resumen de Inversión
                   </h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-black">
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="flex justify-between text-sm sm:text-base text-black">
                       <span>Unidades:</span>
                       <span className="font-semibold">{numUnits}</span>
                     </div>
-                    <div className="flex justify-between text-black">
+                    <div className="flex justify-between text-sm sm:text-base text-black">
                       <span>Precio por unidad:</span>
                       <span className="font-semibold">${wine.pricePerUnit}</span>
                     </div>
-                    <div className="border-t-2 border-black pt-3 flex justify-between text-black">
+                    <div className="border-t-2 border-black pt-2 sm:pt-3 flex justify-between text-sm sm:text-base text-black">
                       <span className="font-semibold">Total a invertir:</span>
-                      <span className="font-bold text-xl">${totalAmount.toLocaleString()}</span>
+                      <span className="font-bold text-lg sm:text-xl">${totalAmount.toLocaleString()}</span>
                     </div>
-                    <div className="pt-3 border-t border-gray-300">
-                      <div className="flex justify-between text-black mb-1">
-                        <span>Retorno anual estimado ({wine.annualReturn}%):</span>
-                        <span className="font-semibold text-green-600">
+                    <div className="pt-2 sm:pt-3 border-t border-gray-300">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 text-sm sm:text-base text-black">
+                        <span className="break-words">Retorno anual estimado ({wine.annualReturn}%):</span>
+                        <span className="font-semibold text-green-600 sm:text-right">
                           +${projectedReturn.toLocaleString()}
                         </span>
                       </div>
@@ -383,13 +383,13 @@ export default function InvestmentPage() {
                   numUnits > wine.available ||
                   totalAmount < wine.pricePerUnit
                 }
-                className="w-full bg-black text-white text-center py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-black text-white text-center py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 aria-label="Confirmar inversión"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Procesando...
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>Procesando...</span>
                   </>
                 ) : (
                   "Confirmar Inversión"
@@ -397,7 +397,7 @@ export default function InvestmentPage() {
               </button>
 
               {/* Info Note */}
-              <p className="text-xs text-gray-600 mt-4 text-center">
+              <p className="text-xs text-gray-600 mt-3 sm:mt-4 text-center">
                 Al confirmar, serás redirigido para completar el pago y la transacción.
               </p>
             </motion.div>

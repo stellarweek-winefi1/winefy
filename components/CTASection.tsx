@@ -16,17 +16,17 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 id="cta-heading" className="text-4xl sm:text-5xl font-bold text-white mb-6">
+          <h2 id="cta-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
             Comienza Hoy
           </h2>
-          <p className="text-xl text-white mb-10 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto px-4">
             Únete a la revolución de la digitalización de vinos. Sin comisiones ocultas, sin barreras de entrada.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 px-4">
             <Link
               href="/mercado"
-              className="inline-flex items-center justify-center bg-white text-black px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl min-w-[250px]"
+              className="inline-flex items-center justify-center bg-white text-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto sm:min-w-[200px] md:min-w-[250px]"
               aria-label="Ver vinos disponibles en el mercado"
             >
               Ver Vinos Disponibles
@@ -34,7 +34,7 @@ export default function CTASection() {
 
             <Link
               href="/digitalizar"
-              className="inline-flex items-center justify-center bg-white text-black px-10 py-4 rounded-lg font-semibold text-lg border-2 border-white hover:bg-gray-100 transition-colors min-w-[250px]"
+              className="inline-flex items-center justify-center bg-white text-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg border-2 border-white hover:bg-gray-100 transition-colors w-full sm:w-auto sm:min-w-[200px] md:min-w-[250px]"
               aria-label="Digitalizar tus vinos"
             >
               Digitalizar Vinos
