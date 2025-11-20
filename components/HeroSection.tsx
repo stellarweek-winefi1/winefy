@@ -7,22 +7,22 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-gradient-to-b from-stone-100 to-stone-50 py-20 px-4 sm:px-6 lg:px-8"
+      className="relative bg-white py-20 px-4 sm:px-6 lg:px-8"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-7xl mx-auto text-center">
         <motion.h1
           id="hero-heading"
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6"
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-black"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Invierte en Vinos <span className="text-wine-700">Premium</span>
+          Invierte en Vinos <span className="text-black">Premium</span>
         </motion.h1>
 
         <motion.p
-          className="text-xl sm:text-2xl text-stone-600 mb-10 max-w-4xl mx-auto"
+          className="text-xl sm:text-2xl text-black mb-10 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -39,7 +39,7 @@ export default function HeroSection() {
         >
           <Link
             href="/mercado"
-            className="inline-flex items-center gap-2 bg-wine-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-wine-800 transition-colors shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl"
             aria-label="Explorar mercado de vinos"
           >
             Explorar Mercado
@@ -48,7 +48,7 @@ export default function HeroSection() {
 
           <Link
             href="/digitalizar"
-            className="inline-flex items-center gap-2 bg-white text-wine-700 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-wine-700 hover:bg-wine-50 transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-lg font-semibold text-lg border-2 border-black hover:bg-gray-50 transition-colors"
             aria-label="Digitalizar tus vinos"
           >
             Digitalizar Vinos
@@ -62,24 +62,24 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <div className="bg-white rounded-xl p-6 shadow-md">
-            <div className="text-4xl font-bold text-wine-700 mb-2">$340B</div>
-            <div className="text-stone-600 text-sm">Mercado Global de Vinos</div>
+          <div className="bg-white rounded-xl p-6 shadow-md border border-black">
+            <div className="text-4xl font-bold text-black mb-2">$340B</div>
+            <div className="text-black text-sm">Mercado Global de Vinos</div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-md">
-            <div className="text-4xl font-bold text-wine-700 mb-2">7-10%</div>
-            <div className="text-stone-600 text-sm">Retorno Anual Promedio</div>
+          <div className="bg-white rounded-xl p-6 shadow-md border border-black">
+            <div className="text-4xl font-bold text-black mb-2">7-10%</div>
+            <div className="text-black text-sm">Retorno Anual Promedio</div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-md">
-            <div className="text-4xl font-bold text-wine-700 mb-2">$50</div>
-            <div className="text-stone-600 text-sm">Inversión Mínima</div>
+          <div className="bg-white rounded-xl p-6 shadow-md border border-black">
+            <div className="text-4xl font-bold text-black mb-2">$50</div>
+            <div className="text-black text-sm">Inversión Mínima</div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-md">
-            <div className="text-4xl font-bold text-wine-700 mb-2">3-5s</div>
-            <div className="text-stone-600 text-sm">Tiempo de Transacción</div>
+          <div className="bg-white rounded-xl p-6 shadow-md border border-black">
+            <div className="text-4xl font-bold text-black mb-2">3-5s</div>
+            <div className="text-black text-sm">Tiempo de Transacción</div>
           </div>
         </motion.div>
       </div>

@@ -59,54 +59,54 @@ const holdings = [
 
 export default function PortafolioPage() {
   return (
-    <main className="min-h-screen bg-stone-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <motion.div
-            className="bg-white rounded-2xl p-6 shadow-md"
+            className="bg-white rounded-2xl p-6 shadow-md border border-black"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="text-sm text-stone-500 mb-2">Valor Total</div>
-            <div className="text-3xl font-bold text-stone-900">
+            <div className="text-sm text-black mb-2">Valor Total</div>
+            <div className="text-3xl font-bold text-black">
               ${portfolioStats.totalValue.toLocaleString()}
             </div>
           </motion.div>
 
           <motion.div
-            className="bg-white rounded-2xl p-6 shadow-md"
+            className="bg-white rounded-2xl p-6 shadow-md border border-black"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="text-sm text-stone-500 mb-2">Invertido</div>
-            <div className="text-3xl font-bold text-stone-900">
+            <div className="text-sm text-black mb-2">Invertido</div>
+            <div className="text-3xl font-bold text-black">
               ${portfolioStats.invested.toLocaleString()}
             </div>
           </motion.div>
 
           <motion.div
-            className="bg-white rounded-2xl p-6 shadow-md"
+            className="bg-white rounded-2xl p-6 shadow-md border border-black"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="text-sm text-stone-500 mb-2">Ganancia</div>
-            <div className="text-3xl font-bold text-orange-600">
+            <div className="text-sm text-black mb-2">Ganancia</div>
+            <div className="text-3xl font-bold text-black">
               +${portfolioStats.profit.toLocaleString()}
             </div>
           </motion.div>
 
           <motion.div
-            className="bg-white rounded-2xl p-6 shadow-md"
+            className="bg-white rounded-2xl p-6 shadow-md border border-black"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="text-sm text-stone-500 mb-2">Retorno</div>
-            <div className="text-3xl font-bold text-orange-600 flex items-center gap-2">
+            <div className="text-sm text-black mb-2">Retorno</div>
+            <div className="text-3xl font-bold text-black flex items-center gap-2">
               <TrendingUp className="w-6 h-6" aria-hidden="true" />
               +{portfolioStats.return}%
             </div>
@@ -114,19 +114,19 @@ export default function PortafolioPage() {
         </div>
 
         {/* Holdings Section */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-          <div className="px-6 py-5 border-b border-stone-200">
-            <h2 className="text-2xl font-semibold text-stone-900 flex items-center gap-2">
-              <Wine className="w-6 h-6 text-wine-700" aria-hidden="true" />
+        <div className="bg-white rounded-2xl shadow-md overflow-hidden border border-black">
+          <div className="px-6 py-5 border-b border-black">
+            <h2 className="text-2xl font-semibold text-black flex items-center gap-2">
+              <Wine className="w-6 h-6 text-black" aria-hidden="true" />
               Mis Vinos
             </h2>
           </div>
 
-          <div className="divide-y divide-stone-200">
+          <div className="divide-y divide-black">
             {holdings.map((holding, index) => (
               <motion.div
                 key={holding.id}
-                className="p-6 hover:bg-stone-50 transition-colors"
+                className="p-6 hover:bg-gray-50 transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
@@ -138,10 +138,10 @@ export default function PortafolioPage() {
                       🍷
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-stone-900 mb-1">
+                      <h3 className="text-lg font-semibold text-black mb-1">
                         {holding.name}
                       </h3>
-                      <div className="flex items-center gap-2 text-sm text-stone-600">
+                      <div className="flex items-center gap-2 text-sm text-black">
                         <span>{holding.country}</span>
                         <span>{holding.region}</span>
                         <span>•</span>
@@ -153,26 +153,26 @@ export default function PortafolioPage() {
                   {/* Price Info */}
                   <div className="grid grid-cols-4 gap-6 lg:gap-8 text-center">
                     <div>
-                      <div className="text-xs text-stone-500 mb-1">Compra</div>
-                      <div className="text-lg font-semibold text-stone-900">
+                      <div className="text-xs text-black mb-1">Compra</div>
+                      <div className="text-lg font-semibold text-black">
                         ${holding.purchasePrice}
                       </div>
                     </div>
                     <div>
-                      <div className="text-xs text-stone-500 mb-1">Actual</div>
-                      <div className="text-lg font-semibold text-stone-900">
+                      <div className="text-xs text-black mb-1">Actual</div>
+                      <div className="text-lg font-semibold text-black">
                         ${holding.currentPrice}
                       </div>
                     </div>
                     <div>
-                      <div className="text-xs text-stone-500 mb-1">Valor Total</div>
-                      <div className="text-lg font-semibold text-stone-900">
+                      <div className="text-xs text-black mb-1">Valor Total</div>
+                      <div className="text-lg font-semibold text-black">
                         ${holding.totalValue.toLocaleString()}
                       </div>
                     </div>
                     <div>
-                      <div className="text-xs text-stone-500 mb-1">Retorno</div>
-                      <div className="text-lg font-semibold text-orange-600 flex items-center justify-center gap-1">
+                      <div className="text-xs text-black mb-1">Retorno</div>
+                      <div className="text-lg font-semibold text-black flex items-center justify-center gap-1">
                         <TrendingUp className="w-4 h-4" aria-hidden="true" />
                         +{holding.return}%
                       </div>
@@ -181,7 +181,7 @@ export default function PortafolioPage() {
 
                   {/* Sell Button */}
                   <button
-                    className="lg:ml-6 px-8 py-3 border-2 border-wine-700 text-wine-700 rounded-lg font-semibold hover:bg-wine-700 hover:text-white transition-colors"
+                    className="lg:ml-6 px-8 py-3 border-2 border-black text-black rounded-lg font-semibold hover:bg-black hover:text-white transition-colors"
                     aria-label={`Vender ${holding.name}`}
                   >
                     Vender

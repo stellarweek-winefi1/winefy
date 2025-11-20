@@ -53,7 +53,7 @@ export default function MercadoPage() {
   );
 
   return (
-    <main className="min-h-screen bg-stone-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Search Bar */}
         <div className="mb-12">
@@ -62,7 +62,7 @@ export default function MercadoPage() {
               Buscar vinos por nombre, región o tipo
             </label>
             <Search
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-black"
               aria-hidden="true"
             />
             <input
@@ -71,7 +71,7 @@ export default function MercadoPage() {
               placeholder="Buscar por nombre, región o tipo..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-wine-700 focus:border-transparent text-lg"
+              className="w-full pl-12 pr-4 py-4 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-lg"
               aria-label="Buscar vinos"
             />
           </div>
@@ -85,7 +85,7 @@ export default function MercadoPage() {
             ))
           ) : (
             <div className="col-span-full text-center py-12">
-              <p className="text-xl text-stone-500">
+              <p className="text-xl text-black">
                 No se encontraron vinos que coincidan con tu búsqueda.
               </p>
             </div>

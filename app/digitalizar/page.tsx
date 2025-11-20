@@ -51,7 +51,7 @@ export default function DigitalizarPage() {
   };
 
   return (
-    <main className="min-h-screen bg-stone-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
@@ -60,10 +60,10 @@ export default function DigitalizarPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Digitaliza tu <span className="text-wine-700">Cosecha</span>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-black">
+            Digitaliza tu <span className="text-black">Cosecha</span>
           </h1>
-          <p className="text-xl text-stone-600">
+          <p className="text-xl text-black">
             Convierte tus vinos en activos digitales y accede a capital inmediato
           </p>
         </motion.div>
@@ -81,10 +81,10 @@ export default function DigitalizarPage() {
                 className={cn(
                   "rounded-2xl p-6 border-2 transition-all duration-300 cursor-pointer",
                   isActive
-                    ? "bg-wine-700 text-white border-wine-700"
+                    ? "bg-black text-white border-black"
                     : isCompleted
-                    ? "bg-wine-100 text-wine-700 border-wine-700"
-                    : "bg-white text-stone-600 border-stone-200"
+                    ? "bg-gray-100 text-black border-black"
+                    : "bg-white text-black border-black"
                 )}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -98,8 +98,8 @@ export default function DigitalizarPage() {
                       isActive
                         ? "bg-white bg-opacity-20"
                         : isCompleted
-                        ? "bg-wine-700 bg-opacity-10"
-                        : "bg-stone-100"
+                        ? "bg-black bg-opacity-10"
+                        : "bg-gray-100"
                     )}
                   >
                     <Icon className="w-6 h-6" aria-hidden="true" />
@@ -107,7 +107,7 @@ export default function DigitalizarPage() {
                   <div className="font-semibold text-sm mb-1">{step.title}</div>
                   <div className={cn(
                     "text-xs",
-                    isActive ? "text-wine-100" : "text-stone-500"
+                    isActive ? "text-white" : "text-black"
                   )}>
                     {step.description}
                   </div>
@@ -119,23 +119,23 @@ export default function DigitalizarPage() {
 
         {/* Form Content */}
         <motion.div
-          className="bg-white rounded-2xl shadow-md p-8"
+          className="bg-white rounded-2xl shadow-md p-8 border border-black"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           {currentStep === 1 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-black">
                 Información del Vino
               </h2>
 
               <div>
                 <label
                   htmlFor="wineName"
-                  className="block text-sm font-medium text-stone-700 mb-2"
+                  className="block text-sm font-medium text-black mb-2"
                 >
-                  Nombre del Vino <span className="text-red-600">*</span>
+                  Nombre del Vino <span className="text-black">*</span>
                 </label>
                 <input
                   type="text"
@@ -144,7 +144,7 @@ export default function DigitalizarPage() {
                   value={formData.wineName}
                   onChange={handleInputChange}
                   placeholder="Ej: Malbec Reserva 2020"
-                  className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine-700 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   required
                 />
               </div>
@@ -153,9 +153,9 @@ export default function DigitalizarPage() {
                 <div>
                   <label
                     htmlFor="region"
-                    className="block text-sm font-medium text-stone-700 mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
-                    Región <span className="text-red-600">*</span>
+                    Región <span className="text-black">*</span>
                   </label>
                   <input
                     type="text"
@@ -164,7 +164,7 @@ export default function DigitalizarPage() {
                     value={formData.region}
                     onChange={handleInputChange}
                     placeholder="Ej: Mendoza, Argentina"
-                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine-700 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                     required
                   />
                 </div>
@@ -172,9 +172,9 @@ export default function DigitalizarPage() {
                 <div>
                   <label
                     htmlFor="vintage"
-                    className="block text-sm font-medium text-stone-700 mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
-                    Añada <span className="text-red-600">*</span>
+                    Añada <span className="text-black">*</span>
                   </label>
                   <input
                     type="text"
@@ -183,7 +183,7 @@ export default function DigitalizarPage() {
                     value={formData.vintage}
                     onChange={handleInputChange}
                     placeholder="Ej: 2020"
-                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine-700 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                     required
                   />
                 </div>
@@ -192,7 +192,7 @@ export default function DigitalizarPage() {
               <div>
                 <label
                   htmlFor="description"
-                  className="block text-sm font-medium text-stone-700 mb-2"
+                  className="block text-sm font-medium text-black mb-2"
                 >
                   Descripción
                 </label>
@@ -203,7 +203,7 @@ export default function DigitalizarPage() {
                   onChange={handleInputChange}
                   placeholder="Describe tu vino: notas de cata, proceso de elaboración, premios..."
                   rows={6}
-                  className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine-700 focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none"
                 />
               </div>
 
@@ -211,9 +211,9 @@ export default function DigitalizarPage() {
                 <div>
                   <label
                     htmlFor="bottleCount"
-                    className="block text-sm font-medium text-stone-700 mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
-                    Cantidad de Botellas <span className="text-red-600">*</span>
+                    Cantidad de Botellas <span className="text-black">*</span>
                   </label>
                   <input
                     type="number"
@@ -222,7 +222,7 @@ export default function DigitalizarPage() {
                     value={formData.bottleCount}
                     onChange={handleInputChange}
                     placeholder="Ej: 5000"
-                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine-700 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                     required
                   />
                 </div>
@@ -230,9 +230,9 @@ export default function DigitalizarPage() {
                 <div>
                   <label
                     htmlFor="pricePerBottle"
-                    className="block text-sm font-medium text-stone-700 mb-2"
+                    className="block text-sm font-medium text-black mb-2"
                   >
-                    Precio por Botella (USD) <span className="text-red-600">*</span>
+                    Precio por Botella (USD) <span className="text-black">*</span>
                   </label>
                   <input
                     type="number"
@@ -241,7 +241,7 @@ export default function DigitalizarPage() {
                     value={formData.pricePerBottle}
                     onChange={handleInputChange}
                     placeholder="Ej: 85"
-                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine-700 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                     required
                   />
                 </div>
@@ -251,13 +251,13 @@ export default function DigitalizarPage() {
 
           {currentStep === 2 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6">Documentación</h2>
+              <h2 className="text-2xl font-semibold mb-6 text-black">Documentación</h2>
               <div className="text-center py-12">
-                <Upload className="w-16 h-16 text-stone-400 mx-auto mb-4" />
-                <p className="text-stone-600 mb-4">
+                <Upload className="w-16 h-16 text-black mx-auto mb-4" />
+                <p className="text-black mb-4">
                   Sube certificados de autenticidad, fotos de las botellas y cualquier documentación relevante
                 </p>
-                <button className="px-6 py-3 bg-wine-700 text-white rounded-lg font-semibold hover:bg-wine-800 transition-colors">
+                <button className="px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
                   Seleccionar Archivos
                 </button>
               </div>
@@ -266,19 +266,19 @@ export default function DigitalizarPage() {
 
           {currentStep === 3 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-black">
                 Precio y Digitalización
               </h2>
               <div className="text-center py-12">
-                <p className="text-xl text-stone-700 mb-8">
+                <p className="text-xl text-black mb-8">
                   Define el precio por unidad y confirma los detalles de digitalización
                 </p>
-                <div className="bg-stone-50 rounded-xl p-6 max-w-md mx-auto">
-                  <div className="text-sm text-stone-600 mb-2">Precio sugerido por botella</div>
-                  <div className="text-4xl font-bold text-wine-700 mb-4">
+                <div className="bg-gray-50 rounded-xl p-6 max-w-md mx-auto border border-black">
+                  <div className="text-sm text-black mb-2">Precio sugerido por botella</div>
+                  <div className="text-4xl font-bold text-black mb-4">
                     ${formData.pricePerBottle || "0"}
                   </div>
-                  <div className="text-sm text-stone-600">
+                  <div className="text-sm text-black">
                     Basado en vinos similares del mercado
                   </div>
                 </div>
@@ -288,34 +288,34 @@ export default function DigitalizarPage() {
 
           {currentStep === 4 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-6">Confirmar</h2>
+              <h2 className="text-2xl font-semibold mb-6 text-black">Confirmar</h2>
               <div className="space-y-4">
-                <div className="bg-stone-50 rounded-xl p-6">
-                  <h3 className="font-semibold mb-4">Resumen de Digitalización</h3>
+                <div className="bg-gray-50 rounded-xl p-6 border border-black">
+                  <h3 className="font-semibold mb-4 text-black">Resumen de Digitalización</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-stone-600">Vino:</span>
-                      <span className="font-semibold">{formData.wineName || "N/A"}</span>
+                      <span className="text-black">Vino:</span>
+                      <span className="font-semibold text-black">{formData.wineName || "N/A"}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-stone-600">Región:</span>
-                      <span className="font-semibold">{formData.region || "N/A"}</span>
+                      <span className="text-black">Región:</span>
+                      <span className="font-semibold text-black">{formData.region || "N/A"}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-stone-600">Añada:</span>
-                      <span className="font-semibold">{formData.vintage || "N/A"}</span>
+                      <span className="text-black">Añada:</span>
+                      <span className="font-semibold text-black">{formData.vintage || "N/A"}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-stone-600">Cantidad:</span>
-                      <span className="font-semibold">{formData.bottleCount || "N/A"} botellas</span>
+                      <span className="text-black">Cantidad:</span>
+                      <span className="font-semibold text-black">{formData.bottleCount || "N/A"} botellas</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-stone-600">Precio por botella:</span>
-                      <span className="font-semibold">${formData.pricePerBottle || "0"}</span>
+                      <span className="text-black">Precio por botella:</span>
+                      <span className="font-semibold text-black">${formData.pricePerBottle || "0"}</span>
                     </div>
                   </div>
                 </div>
-                <button className="w-full bg-wine-700 text-white py-4 rounded-lg font-semibold text-lg hover:bg-wine-800 transition-colors">
+                <button className="w-full bg-black text-white py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors">
                   Confirmar Digitalización
                 </button>
               </div>
@@ -323,15 +323,15 @@ export default function DigitalizarPage() {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex justify-between mt-8 pt-8 border-t border-stone-200">
+          <div className="flex justify-between mt-8 pt-8 border-t border-black">
             <button
               onClick={() => setCurrentStep((prev) => Math.max(1, prev - 1))}
               disabled={currentStep === 1}
               className={cn(
                 "px-6 py-3 rounded-lg font-semibold transition-colors",
                 currentStep === 1
-                  ? "bg-stone-100 text-stone-400 cursor-not-allowed"
-                  : "bg-stone-200 text-stone-700 hover:bg-stone-300"
+                  ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                  : "bg-gray-200 text-black hover:bg-gray-300"
               )}
             >
               Anterior
@@ -339,7 +339,7 @@ export default function DigitalizarPage() {
 
             <button
               onClick={() => setCurrentStep((prev) => Math.min(4, prev + 1))}
-              className="px-6 py-3 bg-wine-700 text-white rounded-lg font-semibold hover:bg-wine-800 transition-colors"
+              className="px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
             >
               {currentStep === 4 ? "Finalizar" : "Siguiente"}
             </button>

@@ -50,10 +50,10 @@ export default function HowItWorksSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 id="how-it-works-heading" className="text-4xl sm:text-5xl font-bold mb-4">
-            Cómo Funciona <span className="text-wine-700">VineFi</span>
+          <h2 id="how-it-works-heading" className="text-4xl sm:text-5xl font-bold mb-4 text-black">
+            Cómo Funciona <span className="text-black">VineFi</span>
           </h2>
-          <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+          <p className="text-xl text-black max-w-3xl mx-auto">
             Una plataforma simple y segura para democratizar la inversión en vinos
           </p>
         </motion.div>
@@ -64,17 +64,17 @@ export default function HowItWorksSection() {
             return (
               <motion.div
                 key={feature.title}
-                className="bg-stone-50 rounded-2xl p-8 border border-stone-200 hover:border-wine-700 hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-2xl p-8 border border-black hover:border-black hover:shadow-lg transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="bg-wine-100 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-wine-700" aria-hidden="true" />
+                <div className="bg-black w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                  <Icon className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-stone-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-black">{feature.title}</h3>
+                <p className="text-black leading-relaxed">{feature.description}</p>
               </motion.div>
             );
           })}

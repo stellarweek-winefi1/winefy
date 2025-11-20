@@ -16,13 +16,13 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-stone-50 border-b border-stone-200" role="navigation" aria-label="Navegación principal">
+    <nav className="sticky top-0 z-50 bg-white border-b border-black" role="navigation" aria-label="Navegación principal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-wine-700 hover:text-wine-800 transition-colors"
+            className="flex items-center gap-2 text-black hover:text-gray-800 transition-colors"
             aria-label="VineFi - Ir a inicio"
           >
             <Wine className="w-7 h-7" aria-hidden="true" />
@@ -41,10 +41,10 @@ export default function Navigation() {
                   href={item.href}
                   className={cn(
                     "flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200",
-                    "hover:bg-wine-700 hover:text-white",
+                    "hover:bg-black hover:text-white",
                     isActive
-                      ? "bg-wine-700 text-white"
-                      : "text-stone-700"
+                      ? "bg-black text-white"
+                      : "text-black"
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >

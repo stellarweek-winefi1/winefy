@@ -2,15 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --wine-primary: #7a2e2e;
-  --wine-secondary: #b84343;
-  --wine-accent: #d4a574;
-}
-
 @layer base {
   body {
-    @apply bg-stone-50 text-stone-900;
+    @apply bg-white text-black;
   }
 }
 
