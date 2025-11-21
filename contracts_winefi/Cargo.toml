@@ -4,6 +4,13 @@ members = [
   "contracts/*",
 ]
 
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["VineFi Team"]
+repository = "https://github.com/VineFi/wine-fi"
+
 [workspace.dependencies]
 soroban-sdk = "23.0.2"
 
