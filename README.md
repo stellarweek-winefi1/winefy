@@ -1,6 +1,6 @@
-# 🍷 VineFi – Invertí en Vino Premium de Forma Segura, Clara y Accesible
+# 🍷 VineFi – Trazabilidad Verificable de Vinos en Blockchain
 
-VineFi es una plataforma que permite digitalizar lotes de vino de inversión de Argentina y Chile, facilitando que bodegas y personas puedan participar en el mercado del vino premium sin fricciones, sin intermediarios innecesarios y con total transparencia.
+VineFi es una plataforma de trazabilidad blockchain para vinos premium que permite a bodegas, distribuidores e importadores registrar y verificar cada etapa del ciclo de vida de un lote de vino, desde la cosecha hasta el consumidor final, utilizando Wine Traceability Tokens (WTT) en Stellar.
 
 ---
 
@@ -8,32 +8,38 @@ VineFi es una plataforma que permite digitalizar lotes de vino de inversión de 
 
 ### What real-world problem are you solving?
 
-El mercado de vino de inversión históricamente ofrece retornos atractivos (7-10% anual promedio), pero ha sido un mercado cerrado y exclusivo. Los principales problemas son:
+La industria del vino enfrenta desafíos críticos de trazabilidad y autenticidad:
 
-- **Barreras de entrada altas**: Requiere inversiones mínimas de miles de dólares para acceder a vinos premium
-- **Falta de liquidez**: Una vez invertido, el vino puede estar años guardado sin posibilidad de venderlo fácilmente
-- **Falta de transparencia**: Precios opacos, comisiones ocultas, y poca visibilidad del estado real del inventario
-- **Acceso limitado al capital para bodegas**: Dependencia de bancos y mayoristas, cobros lentos, y márgenes reducidos por intermediación
+- **Falta de transparencia en la cadena de suministro**: Es difícil rastrear el origen real de un vino y verificar su autenticidad
+- **Documentación fragmentada**: Los certificados y documentos están dispersos en diferentes sistemas, sin una fuente única de verdad
+- **Riesgo de falsificación**: Los consumidores no pueden verificar fácilmente si un vino es auténtico
+- **Trazabilidad limitada**: Bodegas, distribuidores e importadores no tienen una forma eficiente de registrar y compartir eventos de trazabilidad
+- **Falta de inmutabilidad**: Los registros pueden ser alterados o perdidos, comprometiendo la confianza en el producto
 
 ### For whom is this a problem?
 
-**Para inversores:**
-- Entusiastas del vino que quieren invertir pero no tienen el capital inicial requerido
-- Inversores que buscan diversificar su portafolio con activos tangibles
-- Personas que quieren exposición al mercado de vinos premium sin barreras técnicas o financieras
-
 **Para bodegas:**
-- Bodegas de Argentina y Chile que necesitan capital para expandirse sin endeudarse
-- Productores que quieren acceso directo a una comunidad global de inversores
-- Bodegas que buscan monetizar inventario almacenado de forma más eficiente
+- Necesitan demostrar la autenticidad y calidad de sus productos
+- Requieren una forma confiable de registrar eventos de producción (vinificación, barrica, embotellado)
+- Buscan proteger su marca contra falsificaciones
+
+**Para distribuidores e importadores:**
+- Necesitan verificar la autenticidad de los lotes que reciben
+- Requieren documentación completa y verificable para cumplir con regulaciones
+- Buscan transparencia en la cadena de suministro
+
+**Para consumidores:**
+- Quieren verificar que el vino que compran es auténtico
+- Desean conocer el origen y la historia completa del producto
+- Buscan transparencia en lo que consumen
 
 ### Why is this problem urgent or important now?
 
-- El vino de inversión ha crecido como activo alternativo en todo el mundo ($340B mercado global)
-- Las nuevas generaciones buscan exposición a activos tangibles sin procesos financieros lentos o caros
-- La digitalización de activos reales permite acceso global, fraccionamiento y trazabilidad sin complejidad
-- Bodegas de Argentina y Chile están buscando nuevas fuentes de capital para expandirse sin endeudarse
-- La tecnología blockchain permite transacciones rápidas, seguras y de bajo costo
+- El mercado de vinos falsificados representa millones de dólares en pérdidas anuales
+- Los consumidores demandan cada vez más transparencia sobre el origen de los productos
+- Las regulaciones de trazabilidad se están volviendo más estrictas en muchos países
+- La tecnología blockchain permite garantizar inmutabilidad y transparencia verificable
+- La digitalización de la cadena de suministro es una tendencia creciente en la industria alimentaria
 
 ---
 
@@ -41,42 +47,51 @@ El mercado de vino de inversión históricamente ofrece retornos atractivos (7-1
 
 ### Who is your primary user?
 
-**Usuario primario: Inversores individuales**
-- Edad: 25-55 años
-- Perfil: Entusiastas del vino, inversores que buscan diversificación, personas con interés en activos alternativos
-- Ubicación: Global, con foco inicial en Latinoamérica, USA y Europa
-- Nivel técnico: Bajo a medio - quieren usar la plataforma sin entender blockchain
+**Usuario primario: Bodegas**
+- Bodegas de Argentina y Chile que producen vinos premium
+- Necesitan certificar y rastrear sus lotes de producción
+- Buscan proteger su marca y demostrar autenticidad
 
-**Usuario secundario: Bodegas**
-- Bodegas de Argentina y Chile con vinos premium
-- Bodegas que buscan capitalización sin intermediarios tradicionales
+**Usuarios secundarios:**
+- **Distribuidores e importadores**: Necesitan verificar lotes y registrar eventos de recepción/transporte
+- **Retailers**: Requieren documentación verificable para sus clientes
+- **Consumidores finales**: Quieren verificar autenticidad mediante QR codes
 
 ### What is their core need or pain point?
 
-**Inversores:**
-- Necesitan acceso a vinos premium con montos accesibles (desde $50)
-- Requieren transparencia total en precios, disponibilidad y estado del inventario
-- Necesitan liquidez para entrar y salir de inversiones cuando lo deseen
-- Quieren un proceso simple, sin barreras técnicas o financieras complejas
-
 **Bodegas:**
-- Necesitan capital inmediato sin depender de bancos o distribuidores
-- Buscan acceso directo a una comunidad global de inversores
-- Requieren un proceso simple para digitalizar y monetizar su inventario
+- Necesitan registrar lotes de forma certificada e inmutable
+- Requieren documentar cada etapa del proceso (cosecha, vinificación, barrica, embotellado)
+- Buscan proteger su marca contra falsificaciones
+- Necesitan compartir información verificable con la cadena de suministro
+
+**Distribuidores/Importadores:**
+- Necesitan verificar la autenticidad de los lotes recibidos
+- Requieren registrar eventos de trazabilidad (recepción, almacenamiento, transporte)
+- Buscan documentación completa y verificable
+
+**Consumidores:**
+- Quieren verificar que el vino es auténtico
+- Desean conocer la historia completa del producto
+- Necesitan acceso fácil mediante QR codes
 
 ### How do they currently solve this?
 
-**Inversores:**
-- Compran botellas completas directamente de bodegas o distribuidores (requiere miles de dólares)
-- Usan plataformas tradicionales de inversión en vino (altas comisiones, poca transparencia)
-- Invierten a través de fondos de vino (barreras de entrada altas, falta de control)
-- **Workaround actual**: No invierten o invierten montos muy pequeños sin acceso real a vinos premium
-
 **Bodegas:**
-- Venden a través de distribuidores y mayoristas (márgenes reducidos, cobros lentos)
-- Obtienen préstamos bancarios (endeudamiento, procesos lentos)
-- Venden directamente a consumidores finales (alcance limitado)
-- **Workaround actual**: Mantienen inventario almacenado sin monetizar eficientemente
+- Usan sistemas de gestión internos no conectados
+- Emiten certificados en papel que pueden perderse o falsificarse
+- Dependen de sistemas centralizados vulnerables
+- **Workaround actual**: Documentación física, sistemas aislados, sin verificación pública
+
+**Distribuidores/Importadores:**
+- Confían en documentación en papel
+- No tienen forma de verificar la autenticidad de los lotes
+- **Workaround actual**: Confianza en la cadena de suministro, sin verificación independiente
+
+**Consumidores:**
+- Confían en el retailer o la marca
+- No tienen forma de verificar autenticidad
+- **Workaround actual**: No hay forma real de verificar, solo confianza
 
 ---
 
@@ -84,101 +99,118 @@ El mercado de vino de inversión históricamente ofrece retornos atractivos (7-1
 
 ### 3.1 Main Idea
 
-VineFi es una plataforma que digitaliza lotes de vino premium en activos digitales fraccionados respaldados 1:1 por botellas físicas reales. Permite que bodegas conviertan su inventario en capital inmediato mediante la emisión de tokens digitales, y que inversores compren fracciones de estos lotes desde montos accesibles ($50+), con total transparencia, trazabilidad y liquidez a través de un mercado secundario.
+VineFi es una plataforma de trazabilidad blockchain que permite a bodegas crear Wine Traceability Tokens (WTT) en Stellar para representar lotes de vino de forma inmutable y verificable. Cada lote puede tener eventos de trazabilidad registrados en blockchain (cosecha, vinificación, barrica, embotellado, transporte, etc.), y cada botella puede tener un QR único que permite a los consumidores verificar la autenticidad y ver la historia completa del producto.
 
 **Core user journey:**
 
-1. **Bodega**: Registra su bodega, sube información y documentación de un lote de vino, define precio por unidad, y digitaliza el lote creando tokens respaldados por botellas físicas
-2. **Inversor**: Explora vinos disponibles en el mercado, selecciona un vino, elige cantidad de unidades a invertir, realiza el pago, y recibe tokens digitales en su wallet
-3. **Gestión**: Inversores pueden ver su portafolio, trackear el valor de sus inversiones, y vender sus tokens en el mercado secundario cuando lo deseen
+1. **Bodega**: Registra un lote de vino con información completa (cosecha, varietal, región, año, cantidad), sube documentación certificada, y se genera un WTT en Stellar representando ese lote
+2. **Trazabilidad**: La bodega y otros actores (distribuidores, importadores) registran eventos en blockchain (vinificación, barrica, embotellado, recepción, transporte)
+3. **Verificación**: Cada botella tiene un QR único que, al ser escaneado, muestra la trazabilidad completa verificable en blockchain
+4. **Transparencia**: Cualquier persona puede auditar los eventos del lote en Stellar, garantizando transparencia verificable
 
 ### 3.2 Why Stellar?
 
 **Stellar Network es ideal para VineFi porque:**
 
-- **Transacciones rápidas y baratas**: Comisiones de $0.00001 y liquidación en 3-5 segundos, perfecto para un marketplace de activos digitales
-- **Stablecoins nativos**: USDC y otras stablecoins permiten pagos estables sin volatilidad de criptomonedas
-- **Asset issuance**: Stellar permite crear y gestionar tokens personalizados (wine tokens) de forma nativa
-- **Multi-currency support**: Facilita pagos desde diferentes países y monedas
+- **Inmutabilidad garantizada**: Una vez registrados, los eventos no pueden ser alterados, garantizando la integridad de los datos
+- **Transparencia verificable**: Cualquiera puede auditar los eventos del lote en la blockchain pública
+- **Bajo costo**: Comisiones mínimas ($0.00001) permiten registrar muchos eventos sin costo prohibitivo
+- **Rapidez**: Transacciones confirmadas en 3-5 segundos
 - **Soroban Smart Contracts**: Para lógica compleja como:
-  - Gestión de fraccionamiento de lotes
-  - Marketplace secundario con matching de órdenes
-  - Escrow y custodia de fondos
-  - Verificación de ownership y transferencias
-- **Wallets y on/off-ramps**: Integración fácil con wallets populares y servicios de conversión fiat/crypto
-- **Transparencia y trazabilidad**: Todas las transacciones son públicas y verificables en la blockchain
+  - Validación de roles (bodega, distribuidor, importador)
+  - Registro de eventos de trazabilidad
+  - Transferencias verificadas entre actores
+  - Garantía de inmutabilidad de datos
+- **Asset Issuance**: Creación de Wine Traceability Tokens (WTT) representando lotes
+- **Transparencia verificable**: Cualquiera puede auditar los eventos del lote
 
 **Elementos de Stellar que usaremos:**
 
-- ✅ **Stellar Network**: Para transacciones de tokens y pagos
-- ✅ **Soroban Smart Contracts**: Para lógica de negocio (marketplace, escrow, fraccionamiento)
-- ✅ **Asset Issuance**: Creación de tokens representando fracciones de vino
-- ✅ **Stablecoins (USDC)**: Para pagos estables
+- ✅ **Stellar Network**: Para transacciones y registro de eventos
+- ✅ **Soroban Smart Contracts**: Para lógica de trazabilidad (Traceability Contract)
+  - Crear lote (WTT)
+  - Registrar eventos
+  - Transferencias verificadas
+  - Validación de roles
+- ✅ **Asset Issuance**: Creación de Wine Traceability Tokens (WTT)
 - ✅ **Stellar SDK**: Integración frontend/backend con la red
-- ✅ **Wallets**: Integración con Freighter, WalletConnect, o wallets web
+- ✅ **Blockchain pública**: Para transparencia verificable
+
+**Características clave:**
+- **Certificación de lotes**: Cada lote se certifica con un WTT en Stellar
+- **Registro de eventos de trazabilidad**: Cada evento queda registrado en blockchain
+- **Validación de roles**: Verificación de permisos (bodega, distribuidor, importador)
+- **Garantía de inmutabilidad**: Los datos no pueden ser alterados una vez registrados
+- **Transparencia verificable**: Cualquiera puede auditar los eventos del lote
 
 ---
 
 ## 4. Core Features (Planned for the Hackathon)
 
-### Feature 1: Digitalización de Vinos (Wine Digitization)
+### Feature 1: Digitalización del Lote
 **What the user can do:**
-- Bodegas pueden registrar información de un lote de vino (nombre, región, añada, cantidad de botellas, precio)
-- Subir documentación (certificados de autenticidad, fotos, etc.)
-- Digitalizar el lote creando tokens en Stellar que representan fracciones del inventario
-- Ver el estado de sus lotes digitalizados
+- Bodegas registran información completa del lote: cosecha, varietal, región, año, cantidad
+- Suben documentación certificada (certificados de origen, análisis, etc.)
+- Se genera un Wine Traceability Token (WTT) en Stellar representando ese lote
+- El lote queda registrado de forma inmutable en blockchain
 
 **How we will know if it's working:**
-- Una bodega puede completar el formulario de digitalización
-- Los tokens se crean exitosamente en Stellar para un lote
-- El lote aparece en el marketplace disponible para inversión
+- Una bodega puede completar el formulario de registro de lote
+- El WTT se crea exitosamente en Stellar para un lote
+- El lote aparece en el dashboard con su token verificado
+- Los documentos quedan asociados al lote
 
-### Feature 2: Marketplace de Vinos (Wine Marketplace)
+### Feature 2: Registro de Eventos de Trazabilidad
 **What the user can do:**
-- Inversores pueden explorar vinos disponibles con información detallada
-- Ver precio por unidad, retorno anual estimado, disponibilidad
-- Buscar y filtrar vinos por región, precio, rating
-- Ver detalles completos de cada vino antes de invertir
+- La bodega registra pasos del proceso: vinificación, barrica, embotellado, etc.
+- Importadores y distribuidores pueden agregar eventos al recibir el lote (recepción, almacenamiento, transporte)
+- Cada evento queda registrado en blockchain de forma inmutable
+- Los eventos aparecen en un timeline verificable
 
 **How we will know if it's working:**
-- Los vinos digitalizados aparecen en la página de mercado
-- Los usuarios pueden buscar y filtrar vinos
-- Cada vino muestra información correcta (precio, disponibilidad, etc.)
+- Los eventos se registran exitosamente en Stellar
+- Los eventos aparecen en un timeline cronológico
+- Cada evento es verificable en la blockchain pública
+- Los roles son validados antes de permitir registro de eventos
 
-### Feature 3: Inversión en Vinos (Wine Investment)
+### Feature 3: Dashboard de Trazabilidad
 **What the user can do:**
-- Inversores pueden seleccionar un vino y especificar cantidad de unidades a comprar
-- Ver resumen de inversión (unidades, precio total, retorno estimado)
-- Conectar wallet de Stellar y realizar el pago
-- Recibir tokens digitales en su wallet después del pago
+- Ver todos los lotes digitalizados
+- Ver estado actual, etapas completadas y documentos asociados
+- Consultar información desde cualquier dispositivo
+- Ver timeline completo de eventos para cada lote
 
 **How we will know if it's working:**
-- Un usuario puede completar una inversión end-to-end
-- El pago se procesa correctamente en Stellar
-- Los tokens se transfieren al wallet del usuario
-- El inventario disponible se actualiza correctamente
+- El dashboard muestra todos los lotes registrados
+- Cada lote muestra su estado actual y eventos completados
+- La información se carga desde Stellar y la base de datos
+- El dashboard es responsive y funciona en móviles
 
-### Feature 4: Portafolio de Inversiones (Investment Portfolio)
+### Feature 4: QR para Autenticidad (para Consumidores)
 **What the user can do:**
-- Inversores pueden ver todos sus vinos invertidos en un dashboard
-- Ver valor actual de inversión, retorno, cantidad de unidades por vino
-- Trackear el rendimiento de sus inversiones
+- Cada lote/botella genera un QR único
+- Al escanear el QR, el usuario ve la trazabilidad completa del lote
+- Verificación de autenticidad en tiempo real
+- Acceso a documentación certificada
 
 **How we will know if it's working:**
-- El portafolio muestra correctamente los tokens que el usuario posee
-- Los valores y métricas se calculan correctamente
-- La información se actualiza en tiempo real
+- Se genera un QR único para cada lote/botella
+- Al escanear el QR, se muestra la información de trazabilidad
+- La información es verificable contra la blockchain
+- Los consumidores pueden verificar autenticidad
 
-### Feature 5: (Stretch Goal) Mercado Secundario (Secondary Market)
+### Feature 5: (Stretch Goal) Transferencia de Lotes entre Actores
 **What the user can do:**
-- Inversores pueden listar sus tokens para venta en el mercado secundario
-- Otros usuarios pueden comprar tokens de otros inversores
-- Ver historial de transacciones y precios de mercado
+- Se puede transferir ownership del lote del productor → distribuidor → retailer
+- Cada transferencia queda registrada en Stellar
+- Validación de roles antes de permitir transferencias
+- Historial completo de ownership
 
 **How we will know if it's working:**
-- Un usuario puede listar tokens para venta
-- Otro usuario puede comprar esos tokens
-- La transacción se completa en Stellar y los tokens se transfieren
+- Un lote puede ser transferido entre actores autorizados
+- La transferencia se registra en Stellar
+- El historial de ownership es visible y verificable
+- Los roles son validados correctamente
 
 ---
 
@@ -192,57 +224,59 @@ VineFi es una plataforma que digitaliza lotes de vino premium en activos digital
   - `@stellar/stellar-sdk` para interacción con Stellar
   - `@stellar/freighter-api` para integración con Freighter wallet
   - WalletConnect para soporte de múltiples wallets
+- **QR Generation**: Librería para generar QR codes únicos
 
 **Pages:**
-- `/` - Homepage con hero, features, CTA
-- `/mercado` - Marketplace de vinos disponibles
-- `/mercado/[id]` - Página de inversión para un vino específico
-- `/digitalizar` - Formulario para bodegas digitalizar vinos
-- `/portafolio` - Dashboard de inversiones del usuario
+- `/` - Homepage con información sobre trazabilidad
+- `/dashboard` - Dashboard de trazabilidad con todos los lotes
+- `/lotes/nuevo` - Formulario para registrar nuevo lote
+- `/lotes/[id]` - Detalle de lote con timeline de eventos
+- `/qr/[code]` - Vista pública para escanear QR (sin login requerido)
+- `/eventos/registrar` - Formulario para registrar eventos de trazabilidad
 
 ### Backend / Services
 - **Runtime**: Node.js
-- **Framework**: Next.js API Routes (para MVP) o Express.js (si se necesita más complejidad)
+- **Framework**: Next.js API Routes o Express.js
 - **Stellar Integration**: 
-  - Servicio para crear y gestionar assets en Stellar
-  - Servicio para procesar pagos y transferencias
+  - Servicio para crear y gestionar WTT en Stellar
+  - Servicio para registrar eventos de trazabilidad
   - Integración con Soroban para smart contracts
 
 **API Endpoints (planned):**
-- `POST /api/wines` - Crear nuevo vino digitalizado
-- `GET /api/wines` - Listar vinos disponibles
-- `GET /api/wines/[id]` - Obtener detalles de un vino
-- `POST /api/invest` - Procesar inversión
-- `GET /api/portfolio` - Obtener portafolio del usuario
+- `POST /api/lotes` - Crear nuevo lote y generar WTT
+- `GET /api/lotes` - Listar todos los lotes
+- `GET /api/lotes/[id]` - Obtener detalles de un lote
+- `POST /api/eventos` - Registrar evento de trazabilidad
+- `GET /api/eventos/[loteId]` - Obtener eventos de un lote
+- `GET /api/qr/[code]` - Verificar QR y obtener información del lote
+- `POST /api/transferencias` - Transferir ownership de un lote
 
 ### Smart Contracts (Soroban)
-- **Wine Token Contract**: 
-  - Gestión de emisión de tokens por lote de vino
-  - Verificación de ownership
-  - Transferencias de tokens
-  
-- **Marketplace Contract** (stretch goal):
-  - Matching de órdenes de compra/venta
-  - Escrow de fondos
-  - Gestión de comisiones
+- **Traceability Contract**: 
+  - Crear lote (WTT)
+  - Registrar eventos de trazabilidad
+  - Transferencias verificadas entre actores
+  - Validación de roles (bodega, distribuidor, importador)
+  - Garantía de inmutabilidad de datos
 
 **Lenguaje**: Rust (Soroban)
 
 ### Data / Storage
 - **Database**: PostgreSQL o Supabase
-  - Información de bodegas
-  - Catálogo de vinos digitalizados
-  - Usuarios y wallets
-  - Historial de transacciones
-  - Documentación de vinos (IPFS o storage similar)
+  - Información de lotes (metadatos)
+  - Documentos de certificación
+  - Usuarios y roles
+  - Eventos de trazabilidad (cache local, fuente de verdad en Stellar)
 
 - **Blockchain**: Stellar Network
-  - Tokens de vino (assets)
-  - Transacciones y ownership
-  - Smart contracts (Soroban)
+  - Wine Traceability Tokens (WTT) representando lotes
+  - Eventos de trazabilidad registrados en cadena
+  - Transferencias de ownership
+  - Validación de roles
 
 - **File Storage**: 
-  - Imágenes y documentos de vinos (Supabase Storage, AWS S3, o IPFS)
+  - Documentos de certificación (Supabase Storage, AWS S3, o IPFS)
+  - Imágenes de lotes y botellas
 
 ### Architecture Diagram
 
@@ -257,7 +291,8 @@ VineFi es una plataforma que digitaliza lotes de vino premium en activos digital
 │         Frontend (Next.js)          │
 │  - React Components                 │
 │  - Stellar SDK Integration          │
-│  - Wallet Connection (Freighter)    │
+│  - QR Code Generation               │
+│  - Dashboard & Forms                │
 └──────┬──────────────────┬───────────┘
        │                  │
        │                  │
@@ -266,8 +301,8 @@ VineFi es una plataforma que digitaliza lotes de vino premium en activos digital
 │   Backend    │   │   Stellar    │
 │  (API Routes)│   │   Network    │
 │              │   │              │
-│  - Business  │   │  - Assets    │
-│    Logic     │◄──┤  - Payments  │
+│  - Business  │   │  - WTT       │
+│    Logic     │◄──┤  - Events    │
 │  - Auth      │   │  - Soroban   │
 │  - File      │   │    Contracts │
 │    Upload    │   │              │
@@ -278,7 +313,8 @@ VineFi es una plataforma que digitaliza lotes de vino premium en activos digital
 │  PostgreSQL  │
 │  / Supabase  │
 │              │
-│  - Wines     │
+│  - Lotes     │
+│  - Eventos   │
 │  - Users     │
 │  - Docs      │
 └──────────────┘
@@ -290,27 +326,29 @@ VineFi es una plataforma que digitaliza lotes de vino premium en activos digital
 
 By the end of Stellar Hack+, we will consider our MVP successful if:
 
-- [ ] **A bodega can digitalize a wine lot**: Complete the digitalization form, upload documentation, and successfully create Stellar tokens representing the wine lot
-- [ ] **An investor can browse available wines**: See a marketplace with at least 3 wines, with complete information (name, price, availability, return)
-- [ ] **An investor can complete an investment**: Select a wine, choose number of units, connect Stellar wallet, make payment, and receive tokens in their wallet
-- [ ] **An investor can view their portfolio**: See all their wine investments in a dashboard with correct token balances and investment details
-- [ ] **We can demonstrate end-to-end flow**: From wine digitization to investment to portfolio view, all working on Stellar network
-- [ ] **We can measure transactions**: Show transaction history on Stellar, verify token ownership, and demonstrate transparency
+- [ ] **Una bodega puede digitalizar un lote**: Complete el formulario de registro, suba documentación, y se genere exitosamente un WTT en Stellar representando el lote
+- [ ] **Se pueden registrar eventos de trazabilidad**: Los eventos (vinificación, barrica, embotellado, etc.) se registran en blockchain y aparecen en un timeline verificable
+- [ ] **Un QR permite ver información real del lote**: Se genera un QR único para un lote, y al escanearlo se muestra la trazabilidad completa verificable
+- [ ] **El dashboard muestra trazabilidad completa**: El dashboard muestra todos los lotes con su estado actual, eventos completados, y documentos, con datos verificables desde Stellar
+- [ ] **Se demuestra un flujo completo**: Crear lote → registrar eventos → visualizar trazabilidad → escanear QR, todo funcionando end-to-end
+- [ ] **Transparencia verificable**: Cualquier persona puede verificar los eventos del lote en la blockchain pública de Stellar
 
 **Stretch Goals:**
-- [ ] Secondary marketplace where users can buy/sell wine tokens
-- [ ] Integration with multiple Stellar wallets (Freighter, WalletConnect)
-- [ ] Real-time price updates and market data
+- [ ] Transferencias de ownership entre actores (bodega → distribuidor → retailer)
+- [ ] App móvil liviana para escanear QR codes
+- [ ] Notificaciones en tiempo real cuando se registran eventos
+- [ ] Integración con sistemas existentes de bodegas
 
 ---
 
 ## 7. Team
 
-- **Team name**: VineFi Team
+- **Team name**: VineFi
 
 - **Members and roles**:
-  - [Your Name] – Full-stack development, Stellar integration, smart contracts
-  - (Add team members as needed)
+  - **Mateo Quintana** – Product and Marketing
+  - **Anwar Sánchez** – Frontend & Blockchain
+  - **Manuel Paredes** – Backend & Blockchain
 
 - **Links**:
   - GitHub: (Add your repo link)
