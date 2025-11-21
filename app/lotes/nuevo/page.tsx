@@ -23,8 +23,8 @@ const steps = [
   },
   {
     id: 3,
-    title: "Generar WTT",
-    description: "Crear token en Stellar",
+    title: "Certificado de Vino",
+    description: "Crear certificado único",
     icon: DollarSign,
   },
   {
@@ -128,13 +128,13 @@ export default function NuevoLotePage() {
   };
 
   const generateWTTToken = () => {
-    // Generate a unique WTT token based on wine name and timestamp
+    // Generate a unique Certificate token based on wine name and timestamp
     const timestamp = Date.now();
     const wineNameSlug = formData.wineName
       .toUpperCase()
       .replace(/[^A-Z0-9]/g, "-")
       .substring(0, 20);
-    const token = `${wineNameSlug}-${formData.vintage}-WTT-${timestamp.toString().slice(-6)}`;
+    const token = `${wineNameSlug}-${formData.vintage}-CERT-${timestamp.toString().slice(-6)}`;
     return token;
   };
 
@@ -149,7 +149,7 @@ export default function NuevoLotePage() {
   };
 
   const handleCertifyLot = () => {
-    // Generate WTT token and lot ID
+    // Generate Certificate token and lot ID
     const token = generateWTTToken();
     const id = generateLotId();
     
@@ -157,8 +157,8 @@ export default function NuevoLotePage() {
     setLotId(id);
     setIsCertified(true);
     
-    // In a real app, this would make an API call to create the WTT on Stellar
-    console.log("WTT Token generated:", token);
+    // In a real app, this would make an API call to create the Certificate
+    console.log("Certificate Token generated:", token);
     console.log("Lot ID:", id);
   };
 
@@ -306,7 +306,7 @@ export default function NuevoLotePage() {
             Registrar Nuevo <span className="text-black">Lote</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-black px-4">
-            Certifica un lote de vino y genera su Wine Traceability Token (WTT) en blockchain
+            Certifica un lote de vino y genera su Certificado de Autenticidad con la mejor tecnología
           </p>
         </motion.div>
 
@@ -624,11 +624,11 @@ export default function NuevoLotePage() {
           {currentStep === 3 && (
             <div className="space-y-6">
               <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5 md:mb-6 text-black">
-                Generar Wine Traceability Token (WTT)
+                Certificado de Vino
               </h2>
               <div className="text-center py-12">
                 <p className="text-base sm:text-lg md:text-xl text-black mb-8">
-                  Se generará un WTT único en Stellar para este lote. El token representará este lote de forma inmutable en blockchain.
+                  Se generará un Certificado de Autenticidad único para este lote. El certificado representará este lote de forma inmutable usando la mejor tecnología.
                 </p>
                 <div className="bg-gray-50 rounded-xl p-6 max-w-md mx-auto border border-black">
                   <div className="text-sm text-black mb-2">Lote a certificar</div>
@@ -640,7 +640,7 @@ export default function NuevoLotePage() {
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 mt-6">
-                  Una vez generado, el WTT quedará registrado permanentemente en Stellar
+                  Una vez generado, el Certificado de Autenticidad quedará registrado permanentemente con la mejor tecnología
                 </p>
               </div>
             </div>
@@ -683,7 +683,7 @@ export default function NuevoLotePage() {
                   onClick={handleCertifyLot}
                   className="w-full bg-black text-white py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors"
                 >
-                  Generar WTT y Certificar Lote
+                  Generar Certificado de Vino y Certificar Lote
                 </button>
               </div>
             </div>
@@ -720,12 +720,12 @@ export default function NuevoLotePage() {
                       ¡Lote Certificado Exitosamente!
                     </h2>
                     <p className="text-base sm:text-lg text-gray-600 mb-8">
-                      Tu Wine Traceability Token (WTT) ha sido generado y registrado en Stellar
+                      Tu Certificado de Autenticidad ha sido generado y registrado con la mejor tecnología
                     </p>
 
-                    {/* WTT Token Display */}
+                    {/* Certificate Token Display */}
                     <div className="bg-black text-white rounded-xl p-4 sm:p-6 mb-8">
-                      <div className="text-xs sm:text-sm text-gray-300 mb-2">WTT Token</div>
+                      <div className="text-xs sm:text-sm text-gray-300 mb-2">Certificado de Vino</div>
                       <div className="text-lg sm:text-xl md:text-2xl font-mono font-bold break-all">
                         {wttToken}
                       </div>

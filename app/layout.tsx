@@ -6,8 +6,8 @@ import Navigation from "@/components/Navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Winefy - Trazabilidad Verificable de Vinos en Blockchain",
-  description: "Plataforma de trazabilidad blockchain para vinos premium. Certifica lotes, registra eventos y verifica autenticidad con Wine Traceability Tokens (WTT) en Stellar.",
+  title: "Vinifica - Trazabilidad Verificable de Vinos",
+  description: "Plataforma de trazabilidad para vinos premium. Certifica lotes, registra eventos y verifica autenticidad con Certificados de Autenticidad usando la mejor tecnología.",
 };
 
 export default function RootLayout({

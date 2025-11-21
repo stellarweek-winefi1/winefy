@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { Wine, Home, LayoutDashboard, Package, QrCode, Menu, X } from "lucide-react";
+import { Wine, Home, Package, QrCode, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navigation() {
@@ -49,7 +49,6 @@ export default function Navigation() {
 
   const navItems = [
     { href: "/", label: "Inicio", icon: Home },
-    { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/lotes", label: "Lotes", icon: Package },
   ];
 
@@ -67,11 +66,11 @@ export default function Navigation() {
           <Link
             href="/"
             className="flex items-center gap-2 text-gray-900 hover:text-black transition-colors flex-shrink-0"
-            aria-label="Winefy - Ir a inicio"
+            aria-label="Vinifica - Ir a inicio"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <Wine className="w-6 h-6 flex-shrink-0" strokeWidth={1.5} aria-hidden="true" />
-            <span className="text-lg font-semibold whitespace-nowrap">Winefy</span>
+            <span className="text-lg font-semibold whitespace-nowrap">Vinifica</span>
           </Link>
 
           {/* Desktop Navigation */}
