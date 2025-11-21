@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Shield, Clock, Zap, QrCode } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
@@ -63,6 +64,34 @@ export default function HowItWorksSection() {
           >
             Todo lo que necesitas para certificar y rastrear tus vinos, sin complicaciones
           </motion.p>
+        </motion.div>
+
+        {/* Image Section */}
+        <motion.div
+          className="mb-12 sm:mb-16 grid grid-cols-1 md:grid-cols-2 gap-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-black">
+            <Image
+              src="/assets/nik-f-KSl193viP48-unsplash.jpg"
+              alt="Proceso de producción de vino"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-black">
+            <Image
+              src="/assets/sue-winston-bYvmOw-3kqE-unsplash.jpg"
+              alt="Trazabilidad y certificación de vinos"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">

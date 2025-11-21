@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Wine, X, CheckCircle, MapPin, Calendar, ShoppingCart } from "lucide-react";
+import { Wine, X, CheckCircle, MapPin, Calendar, ShoppingCart, ChevronDown, HelpCircle } from "lucide-react";
 import { useState } from "react";
 
 // Mock lots data - same structure as in /lotes page
@@ -130,10 +130,44 @@ const mockLotes = [
 
 type Lot = typeof mockLotes[0];
 
+const faqData = [
+  {
+    id: "1",
+    question: "¿Cuántas botellas trae un lote?",
+    answer: "Normalmente entre 6 y 12 botellas. La cantidad exacta se muestra cuando se publica el lote.",
+  },
+  {
+    id: "2",
+    question: "¿El precio incluye impuestos o envío?",
+    answer: "El precio corresponde solo al valor del lote. Los costos de envío o impuestos pueden variar según tu ubicación.",
+  },
+  {
+    id: "3",
+    question: "¿Cómo sé que el lote es auténtico?",
+    answer: "Cada lote tiene un QR único que permite verificar su autenticidad, origen y proceso de trazabilidad.",
+  },
+  {
+    id: "4",
+    question: "¿Puedo comprar desde cualquier país?",
+    answer: "Sí, podés comprar desde cualquier lugar. El envío físico depende de la logística del productor.",
+  },
+  {
+    id: "5",
+    question: "¿Qué pasa si el lote se daña en almacenamiento o transporte?",
+    answer: "El sistema registra cada punto de control. Si hay un daño, se identifica dónde ocurrió y se resuelve con productor o aseguradora.",
+  },
+  {
+    id: "6",
+    question: "¿Puedo revender mi lote?",
+    answer: "Sí, podés revender tu lote dentro de la plataforma cuando habilitemos la sección de reventa.",
+  },
+];
+
 export default function BuyPage() {
   const [selectedLot, setSelectedLot] = useState<Lot | null>(null);
   const [isPurchased, setIsPurchased] = useState(false);
   const [purchasedLots, setPurchasedLots] = useState<Set<string>>(new Set());
+  const [openFaqId, setOpenFaqId] = useState<string | null>(null);
 
   // Filter only available lots (not sold)
   const availableLots = mockLotes.filter((lote) => !lote.isSold && !purchasedLots.has(lote.id));
@@ -161,6 +195,10 @@ export default function BuyPage() {
   const handleCloseModal = () => {
     setSelectedLot(null);
     setIsPurchased(false);
+  };
+
+  const toggleFaq = (id: string) => {
+    setOpenFaqId(openFaqId === id ? null : id);
   };
 
   return (
@@ -382,6 +420,87 @@ export default function BuyPage() {
             </p>
           </div>
         )}
+
+        {/* FAQ Section */}
+        <section className="mt-16 sm:mt-20 md:mt-24 mb-12" aria-labelledby="faq-heading">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              className="text-center mb-8 sm:mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <HelpCircle className="w-8 h-8 sm:w-10 sm:h-10 text-black" aria-hidden="true" />
+                <h2
+                  id="faq-heading"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
+                >
+                  Preguntas Frecuentes
+                </h2>
+              </div>
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+                Encontrá respuestas a las dudas más comunes sobre la compra de lotes certificados
+              </p>
+            </motion.div>
+
+            <div className="space-y-3 sm:space-y-4">
+              {faqData.map((faq, index) => {
+                const isOpen = openFaqId === faq.id;
+                return (
+                  <motion.div
+                    key={faq.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white border-2 border-black rounded-xl overflow-hidden shadow-sm"
+                  >
+                    <button
+                      onClick={() => toggleFaq(faq.id)}
+                      className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 rounded-xl transition-colors hover:bg-gray-50"
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${faq.id}`}
+                    >
+                      <span className="text-base sm:text-lg font-semibold text-black pr-4 flex-1">
+                        {faq.question}
+                      </span>
+                      <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex-shrink-0"
+                      >
+                        <ChevronDown
+                          className="w-5 h-5 sm:w-6 sm:h-6 text-black"
+                          aria-hidden="true"
+                        />
+                      </motion.div>
+                    </button>
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          id={`faq-answer-${faq.id}`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-0">
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );

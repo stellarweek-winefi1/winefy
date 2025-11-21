@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Wine, Shield, Globe, TrendingUp, FileCheck, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
@@ -84,6 +85,25 @@ export default function WhyInvestSection() {
             Diseñado específicamente para bodegas y productores que buscan proteger su marca, 
             demostrar autenticidad y simplificar la trazabilidad sin complicaciones técnicas.
           </motion.p>
+        </motion.div>
+
+        {/* Image Section */}
+        <motion.div
+          className="mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden border-2 border-black">
+            <Image
+              src="/assets/nathan-blackaby-TLccRhX4iD4-unsplash.jpg"
+              alt="Viñedo y producción de vino"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+            />
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">

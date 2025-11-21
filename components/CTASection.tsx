@@ -96,11 +96,11 @@ export default function CTASection() {
                 className="inline-flex items-center justify-center bg-transparent text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg border-2 border-white hover:border-gray-300 w-full sm:w-auto sm:min-w-[200px] md:min-w-[250px] transition-all duration-300 group relative overflow-hidden"
                 aria-label="Ver lotes existentes"
               >
-                <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+                <span className="relative z-10 text-white hover:text-white group-hover:text-white transition-colors duration-300">
                   Ver Lotes Existentes
                 </span>
                 <motion.span
-                  className="absolute inset-0 bg-white"
+                  className="absolute inset-0 bg-gray-800"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}

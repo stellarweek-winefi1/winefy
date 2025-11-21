@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -18,6 +19,17 @@ export default function HeroSection() {
       aria-labelledby="hero-heading"
       ref={constraintsRef}
     >
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-10">
+        <Image
+          src="/assets/gabriel-santos--RsUaWZtAhY-unsplash.jpg"
+          alt="Viñedo"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <motion.h1
           id="hero-heading"
