@@ -1,6 +1,6 @@
-# 🍷 Winefy – Trazabilidad Verificable de Vinos en Blockchain
+# 🍷 Vinifica – Plataforma de Digitalización y Trazabilidad de Vinos
 
-Winefy es una plataforma de trazabilidad blockchain para vinos premium que permite a bodegas, distribuidores e importadores registrar y verificar cada etapa del ciclo de vida de un lote de vino, desde la cosecha hasta el consumidor final, utilizando Wine Traceability Tokens (WTT) en Stellar.
+Vinifica es una plataforma para digitalizar los vinos que permite a los dueños de bodegas rastrear sus lotes en tiempo real para detectar cuándo se daña un vino y saber exactamente en qué parte del proceso ocurre. Los clientes pueden ver esta trazabilidad completa y, si lo desean, pueden comprar vinos directamente en USDC.
 
 ---
 
@@ -8,38 +8,36 @@ Winefy es una plataforma de trazabilidad blockchain para vinos premium que permi
 
 ### What real-world problem are you solving?
 
-La industria del vino enfrenta desafíos críticos de trazabilidad y autenticidad:
+La industria del vino enfrenta desafíos críticos de digitalización y trazabilidad:
 
-- **Falta de transparencia en la cadena de suministro**: Es difícil rastrear el origen real de un vino y verificar su autenticidad
-- **Documentación fragmentada**: Los certificados y documentos están dispersos en diferentes sistemas, sin una fuente única de verdad
-- **Riesgo de falsificación**: Los consumidores no pueden verificar fácilmente si un vino es auténtico
-- **Trazabilidad limitada**: Bodegas, distribuidores e importadores no tienen una forma eficiente de registrar y compartir eventos de trazabilidad
-- **Falta de inmutabilidad**: Los registros pueden ser alterados o perdidos, comprometiendo la confianza en el producto
+- **Falta de digitalización**: Los lotes de vino no están digitalizados, dificultando el seguimiento en tiempo real
+- **Detección tardía de daños**: Los dueños no pueden detectar rápidamente cuándo y dónde se daña un vino en el proceso
+- **Trazabilidad fragmentada**: No existe una forma eficiente de rastrear exactamente en qué parte del proceso ocurre un problema
+- **Transparencia limitada para clientes**: Los clientes no pueden verificar la trazabilidad completa de los vinos que compran
+- **Falta de opciones de compra directa**: No existe una plataforma simple para que los clientes compren vinos certificados en USDC
 
 ### For whom is this a problem?
 
-**Para bodegas:**
-- Necesitan demostrar la autenticidad y calidad de sus productos
-- Requieren una forma confiable de registrar eventos de producción (vinificación, barrica, embotellado)
-- Buscan proteger su marca contra falsificaciones
+**Para dueños de bodegas:**
+- Necesitan digitalizar sus lotes de vino para tener visibilidad completa
+- Requieren detectar rápidamente cuándo se daña un vino durante el proceso
+- Buscan saber exactamente en qué parte del proceso (viñedo, producción, bodega, transporte, almacenamiento) ocurre el daño
+- Necesitan proteger sus inversiones identificando problemas tempranamente
 
-**Para distribuidores e importadores:**
-- Necesitan verificar la autenticidad de los lotes que reciben
-- Requieren documentación completa y verificable para cumplir con regulaciones
-- Buscan transparencia en la cadena de suministro
-
-**Para consumidores:**
-- Quieren verificar que el vino que compran es auténtico
-- Desean conocer el origen y la historia completa del producto
-- Buscan transparencia en lo que consumen
+**Para clientes y compradores:**
+- Quieren ver la trazabilidad completa de los vinos antes de comprar
+- Desean verificar la autenticidad y el origen del producto
+- Buscan una forma sencilla de comprar vinos certificados en USDC
+- Necesitan transparencia sobre cada etapa del proceso
 
 ### Why is this problem urgent or important now?
 
-- El mercado de vinos falsificados representa millones de dólares en pérdidas anuales
-- Los consumidores demandan cada vez más transparencia sobre el origen de los productos
-- Las regulaciones de trazabilidad se están volviendo más estrictas en muchos países
-- La tecnología blockchain permite garantizar inmutabilidad y transparencia verificable
-- La digitalización de la cadena de suministro es una tendencia creciente en la industria alimentaria
+- Las pérdidas por vinos dañados durante el proceso representan millones de dólares anuales
+- La detección tardía de daños genera pérdidas significativas para los dueños de bodegas
+- Los clientes demandan cada vez más transparencia sobre el origen y trazabilidad de los vinos
+- La digitalización de productos premium es una tendencia creciente en la industria
+- Los pagos en criptomonedas (USDC) se están volviendo más aceptados para transacciones de alto valor
+- La tecnología permite rastrear exactamente dónde y cuándo ocurre un problema en el proceso
 
 ---
 
@@ -47,33 +45,35 @@ La industria del vino enfrenta desafíos críticos de trazabilidad y autenticida
 
 ### Who is your primary user?
 
-**Usuario primario: Bodegas**
-- Bodegas de Argentina y Chile que producen vinos premium
-- Necesitan certificar y rastrear sus lotes de producción
-- Buscan proteger su marca y demostrar autenticidad
+**Usuario primario: Dueños de Bodegas**
+- Dueños de bodegas que producen vinos premium
+- Necesitan digitalizar sus lotes para tener control total
+- Buscan detectar problemas y daños en tiempo real durante el proceso
+- Requieren identificar exactamente dónde ocurre un daño (viñedo, producción, bodega, transporte, etc.)
 
 **Usuarios secundarios:**
-- **Distribuidores e importadores**: Necesitan verificar lotes y registrar eventos de recepción/transporte
-- **Retailers**: Requieren documentación verificable para sus clientes
-- **Consumidores finales**: Quieren verificar autenticidad mediante QR codes
+- **Clientes y compradores**: Quieren ver la trazabilidad completa y comprar vinos en USDC
+- **Distribuidores**: Necesitan verificar lotes y registrar eventos de recepción/transporte
+- **Consumidores finales**: Desean verificar autenticidad mediante QR codes
 
 ### What is their core need or pain point?
 
-**Bodegas:**
-- Necesitan registrar lotes de forma certificada e inmutable
-- Requieren documentar cada etapa del proceso (cosecha, vinificación, barrica, embotellado)
-- Buscan proteger su marca contra falsificaciones
-- Necesitan compartir información verificable con la cadena de suministro
+**Dueños de Bodegas:**
+- Necesitan digitalizar sus lotes para tener visibilidad completa en tiempo real
+- Requieren detectar rápidamente cuándo se daña un vino durante el proceso
+- Buscan saber exactamente en qué parte del proceso ocurre el daño
+- Necesitan proteger sus inversiones identificando problemas tempranamente
+- Desean registrar cada etapa del proceso (viñedo, producción, bodega, almacenamiento, transporte, exportación)
 
-**Distribuidores/Importadores:**
-- Necesitan verificar la autenticidad de los lotes recibidos
-- Requieren registrar eventos de trazabilidad (recepción, almacenamiento, transporte)
-- Buscan documentación completa y verificable
+**Clientes y Compradores:**
+- Quieren ver la trazabilidad completa de los vinos antes de comprar
+- Desean verificar la autenticidad y el origen del producto
+- Buscan una forma sencilla de comprar vinos certificados en USDC
+- Necesitan transparencia sobre cada etapa del proceso
 
 **Consumidores:**
-- Quieren verificar que el vino es auténtico
-- Desean conocer la historia completa del producto
-- Necesitan acceso fácil mediante QR codes
+- Quieren verificar que el vino es auténtico mediante QR codes
+- Desean conocer la historia completa del producto desde el viñedo hasta el embotellado
 
 ### How do they currently solve this?
 
@@ -99,14 +99,16 @@ La industria del vino enfrenta desafíos críticos de trazabilidad y autenticida
 
 ### 3.1 Main Idea
 
-Winefy es una plataforma de trazabilidad blockchain que permite a bodegas crear Wine Traceability Tokens (WTT) en Stellar para representar lotes de vino de forma inmutable y verificable. Cada lote puede tener eventos de trazabilidad registrados en blockchain (cosecha, vinificación, barrica, embotellado, transporte, etc.), y cada botella puede tener un QR único que permite a los consumidores verificar la autenticidad y ver la historia completa del producto.
+Vinifica es una plataforma para digitalizar los vinos que permite a los dueños de bodegas rastrear sus lotes en tiempo real para detectar cuándo se daña un vino y saber exactamente en qué parte del proceso ocurre. Los clientes pueden ver esta trazabilidad completa y, si lo desean, pueden comprar vinos directamente en USDC.
 
 **Core user journey:**
 
-1. **Bodega**: Registra un lote de vino con información completa (cosecha, varietal, región, año, cantidad), sube documentación certificada, y se genera un WTT en Stellar representando ese lote
-2. **Trazabilidad**: La bodega y otros actores (distribuidores, importadores) registran eventos en blockchain (vinificación, barrica, embotellado, recepción, transporte)
-3. **Verificación**: Cada botella tiene un QR único que, al ser escaneado, muestra la trazabilidad completa verificable en blockchain
-4. **Transparencia**: Cualquier persona puede auditar los eventos del lote en Stellar, garantizando transparencia verificable
+1. **Digitalización**: El dueño de la bodega registra un lote de vino con información completa (varietal, región, año, cantidad, precio en USDC), sube documentación certificada, y se genera un Certificado de Autenticidad único
+2. **Trazabilidad en Tiempo Real**: El dueño y su equipo registran eventos en cada etapa del proceso (viñedo, producción, bodega, almacenamiento, transporte, exportación). Si ocurre un daño, se registra inmediatamente con ubicación exacta
+3. **Detección de Daños**: El sistema permite detectar rápidamente cuándo se daña un vino y en qué parte exacta del proceso, permitiendo acciones correctivas inmediatas
+4. **Visualización para Clientes**: Los clientes pueden ver la trazabilidad completa de cualquier lote, verificando cada etapa del proceso
+5. **Compra en USDC**: Los clientes pueden comprar lotes certificados directamente en USDC desde la plataforma
+6. **Verificación por QR**: Cada botella tiene un QR único que, al ser escaneado, muestra la trazabilidad completa verificable
 
 ### 3.2 Why Stellar?
 
@@ -149,29 +151,31 @@ Winefy es una plataforma de trazabilidad blockchain que permite a bodegas crear 
 
 ### Feature 1: Digitalización del Lote
 **What the user can do:**
-- Bodegas registran información completa del lote: cosecha, varietal, región, año, cantidad
+- Los dueños de bodegas registran información completa del lote: varietal, región, año, cantidad, precio en USDC
 - Suben documentación certificada (certificados de origen, análisis, etc.)
-- Se genera un Wine Traceability Token (WTT) en Stellar representando ese lote
-- El lote queda registrado de forma inmutable en blockchain
+- Se genera un Certificado de Autenticidad único para ese lote
+- El lote queda digitalizado y listo para rastreo en tiempo real
 
 **How we will know if it's working:**
-- Una bodega puede completar el formulario de registro de lote
-- El WTT se crea exitosamente en Stellar para un lote
-- El lote aparece en el dashboard con su token verificado
+- Un dueño puede completar el formulario de registro de lote con precio en USDC
+- El Certificado de Autenticidad se genera exitosamente
+- El lote aparece en el dashboard con su certificado verificado
 - Los documentos quedan asociados al lote
 
-### Feature 2: Registro de Eventos de Trazabilidad
+### Feature 2: Registro de Eventos de Trazabilidad y Detección de Daños
 **What the user can do:**
-- La bodega registra pasos del proceso: vinificación, barrica, embotellado, etc.
-- Importadores y distribuidores pueden agregar eventos al recibir el lote (recepción, almacenamiento, transporte)
-- Cada evento queda registrado en blockchain de forma inmutable
-- Los eventos aparecen en un timeline verificable
+- El dueño y su equipo registran eventos en cada etapa del proceso: viñedo, producción, bodega, almacenamiento, transporte, exportación
+- Si ocurre un daño, se registra inmediatamente con ubicación exacta y descripción del problema
+- El sistema permite detectar rápidamente cuándo se daña un vino y en qué parte exacta del proceso
+- Cada evento queda registrado con timestamp y ubicación precisa
+- Los eventos aparecen en un timeline verificable con alertas para daños
 
 **How we will know if it's working:**
-- Los eventos se registran exitosamente en Stellar
-- Los eventos aparecen en un timeline cronológico
-- Cada evento es verificable en la blockchain pública
-- Los roles son validados antes de permitir registro de eventos
+- Los eventos se registran exitosamente en cada etapa del proceso
+- Los eventos aparecen en un timeline cronológico con ubicación exacta
+- Si se registra un daño, se muestra una alerta inmediata
+- El dueño puede ver exactamente en qué parte del proceso ocurrió el daño
+- Los eventos son verificables y transparentes
 
 ### Feature 3: Dashboard de Trazabilidad
 **What the user can do:**
@@ -186,7 +190,34 @@ Winefy es una plataforma de trazabilidad blockchain que permite a bodegas crear 
 - La información se carga desde Stellar y la base de datos
 - El dashboard es responsive y funciona en móviles
 
-### Feature 4: QR para Autenticidad (para Consumidores)
+### Feature 4: Visualización de Trazabilidad para Clientes
+**What the user can do:**
+- Los clientes pueden ver la trazabilidad completa de cualquier lote disponible
+- Visualizan cada etapa del proceso (viñedo, producción, bodega, transporte, etc.)
+- Pueden verificar la autenticidad y el origen del producto
+- Acceso a documentación certificada del lote
+
+**How we will know if it's working:**
+- Los clientes pueden acceder a la página de lotes y ver la trazabilidad completa
+- Se muestra un timeline con todas las etapas del proceso
+- La información es transparente y verificable
+- Los clientes pueden verificar autenticidad antes de comprar
+
+### Feature 5: Compra de Vinos en USDC
+**What the user can do:**
+- Los clientes pueden ver todos los lotes disponibles con sus precios en USDC
+- Pueden comprar lotes certificados directamente desde la plataforma
+- Compra rápida con un clic o compra con confirmación de detalles
+- Una vez comprado, el lote se marca como vendido
+
+**How we will know if it's working:**
+- Los clientes pueden ver los precios en USDC en cada lote
+- Pueden hacer clic en "Comprar Ahora" para compra directa
+- Pueden ver detalles antes de confirmar la compra
+- Después de la compra, el lote desaparece de la lista de disponibles
+- Se muestra una confirmación de compra exitosa
+
+### Feature 6: QR para Autenticidad (para Consumidores)
 **What the user can do:**
 - Cada lote/botella genera un QR único
 - Al escanear el QR, el usuario ve la trazabilidad completa del lote
@@ -196,7 +227,7 @@ Winefy es una plataforma de trazabilidad blockchain que permite a bodegas crear 
 **How we will know if it's working:**
 - Se genera un QR único para cada lote/botella
 - Al escanear el QR, se muestra la información de trazabilidad
-- La información es verificable contra la blockchain
+- La información es verificable
 - Los consumidores pueden verificar autenticidad
 
 ### Feature 5: (Stretch Goal) Transferencia de Lotes entre Actores
@@ -227,12 +258,13 @@ Winefy es una plataforma de trazabilidad blockchain que permite a bodegas crear 
 - **QR Generation**: Librería para generar QR codes únicos
 
 **Pages:**
-- `/` - Homepage con información sobre trazabilidad
-- `/dashboard` - Dashboard de trazabilidad con todos los lotes
-- `/lotes/nuevo` - Formulario para registrar nuevo lote
-- `/lotes/[id]` - Detalle de lote con timeline de eventos
+- `/` - Homepage con información sobre digitalización y trazabilidad
+- `/lotes` - Lista de todos los lotes certificados con precios en USDC
+- `/lotes/nuevo` - Formulario para registrar nuevo lote (con precio en USDC)
+- `/lotes/[id]` - Detalle de lote con timeline de eventos y detección de daños
+- `/buy` - Página para comprar lotes disponibles en USDC
 - `/qr/[code]` - Vista pública para escanear QR (sin login requerido)
-- `/eventos/registrar` - Formulario para registrar eventos de trazabilidad
+- `/eventos/registrar` - Formulario para registrar eventos de trazabilidad y daños
 
 ### Backend / Services
 - **Runtime**: Node.js
@@ -326,24 +358,25 @@ Winefy es una plataforma de trazabilidad blockchain que permite a bodegas crear 
 
 By the end of Stellar Hack+, we will consider our MVP successful if:
 
-- [ ] **Una bodega puede digitalizar un lote**: Complete el formulario de registro, suba documentación, y se genere exitosamente un WTT en Stellar representando el lote
-- [ ] **Se pueden registrar eventos de trazabilidad**: Los eventos (vinificación, barrica, embotellado, etc.) se registran en blockchain y aparecen en un timeline verificable
+- [ ] **Un dueño puede digitalizar un lote**: Complete el formulario de registro con precio en USDC, suba documentación, y se genere exitosamente un Certificado de Autenticidad
+- [ ] **Se pueden registrar eventos de trazabilidad y detectar daños**: Los eventos se registran en cada etapa del proceso (viñedo, producción, bodega, transporte, etc.) y si hay un daño, se detecta inmediatamente con ubicación exacta
+- [ ] **El dueño puede ver exactamente dónde ocurre un daño**: Si un vino se daña, el sistema muestra en qué parte exacta del proceso ocurrió el problema
+- [ ] **Los clientes pueden ver la trazabilidad completa**: Los clientes pueden acceder a la información de trazabilidad de cualquier lote disponible
+- [ ] **Los clientes pueden comprar lotes en USDC**: Los clientes pueden ver precios en USDC y comprar lotes certificados directamente desde la plataforma
 - [ ] **Un QR permite ver información real del lote**: Se genera un QR único para un lote, y al escanearlo se muestra la trazabilidad completa verificable
-- [ ] **El dashboard muestra trazabilidad completa**: El dashboard muestra todos los lotes con su estado actual, eventos completados, y documentos, con datos verificables desde Stellar
-- [ ] **Se demuestra un flujo completo**: Crear lote → registrar eventos → visualizar trazabilidad → escanear QR, todo funcionando end-to-end
-- [ ] **Transparencia verificable**: Cualquier persona puede verificar los eventos del lote en la blockchain pública de Stellar
+- [ ] **Se demuestra un flujo completo**: Crear lote → registrar eventos → detectar daño → visualizar trazabilidad → comprar en USDC → escanear QR, todo funcionando end-to-end
 
 **Stretch Goals:**
-- [ ] Transferencias de ownership entre actores (bodega → distribuidor → retailer)
-- [ ] App móvil liviana para escanear QR codes
-- [ ] Notificaciones en tiempo real cuando se registran eventos
+- [ ] Notificaciones en tiempo real cuando se detecta un daño
+- [ ] App móvil liviana para registrar eventos y escanear QR codes
 - [ ] Integración con sistemas existentes de bodegas
+- [ ] Análisis predictivo para prevenir daños
 
 ---
 
 ## 7. Team
 
-- **Team name**: Winefy
+- **Team name**: Vinifica
 
 - **Members and roles**:
   - **Mateo Quintana** – Product and Marketing
