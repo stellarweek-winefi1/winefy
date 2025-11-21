@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { Wine, Home, Package, QrCode, Menu, X } from "lucide-react";
+import { Wine, Home, Package, QrCode, Menu, X, ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navigation() {
@@ -50,6 +50,7 @@ export default function Navigation() {
   const navItems = [
     { href: "/", label: "Inicio", icon: Home },
     { href: "/lotes", label: "Lotes", icon: Package },
+    { href: "/buy", label: "Comprar", icon: ShoppingCart },
   ];
 
   const ctaItem = { href: "/qr", label: "Escanear QR", icon: QrCode };

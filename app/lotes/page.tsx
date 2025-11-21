@@ -18,6 +18,8 @@ const mockLotes = [
     ultimoEvento: "Lote certificado",
     fecha: "2024-01-15",
     eventos: 3,
+    priceUSDC: 2500,
+    isSold: false,
   },
   {
     id: "almaviva-2018",
@@ -31,6 +33,8 @@ const mockLotes = [
     ultimoEvento: "Embotellado completado",
     fecha: "2024-02-20",
     eventos: 5,
+    priceUSDC: 3200,
+    isSold: false,
   },
   {
     id: "achaval-ferrer",
@@ -44,6 +48,8 @@ const mockLotes = [
     ultimoEvento: "En barrica",
     fecha: "2024-03-10",
     eventos: 4,
+    priceUSDC: 2800,
+    isSold: false,
   },
   {
     id: "don-melchor-2019",
@@ -57,6 +63,8 @@ const mockLotes = [
     ultimoEvento: "Crianza completada",
     fecha: "2024-04-05",
     eventos: 6,
+    priceUSDC: 3500,
+    isSold: false,
   },
   {
     id: "sena-2020",
@@ -70,6 +78,8 @@ const mockLotes = [
     ultimoEvento: "Embotellado completado",
     fecha: "2024-04-12",
     eventos: 5,
+    priceUSDC: 4200,
+    isSold: false,
   },
   {
     id: "vega-sicilia-2018",
@@ -83,6 +93,8 @@ const mockLotes = [
     ultimoEvento: "En crianza",
     fecha: "2024-03-25",
     eventos: 4,
+    priceUSDC: 5800,
+    isSold: false,
   },
   {
     id: "opus-one-2019",
@@ -96,6 +108,8 @@ const mockLotes = [
     ultimoEvento: "Crianza en barrica",
     fecha: "2024-05-01",
     eventos: 7,
+    priceUSDC: 6500,
+    isSold: false,
   },
   {
     id: "penfolds-grange-2018",
@@ -109,6 +123,8 @@ const mockLotes = [
     ultimoEvento: "Embotellado completado",
     fecha: "2024-04-18",
     eventos: 6,
+    priceUSDC: 5200,
+    isSold: false,
   },
   {
     id: "sassicaia-2020",
@@ -122,6 +138,8 @@ const mockLotes = [
     ultimoEvento: "Crianza en barrica",
     fecha: "2024-04-28",
     eventos: 5,
+    priceUSDC: 4800,
+    isSold: false,
   },
   {
     id: "caymus-2019",
@@ -135,6 +153,8 @@ const mockLotes = [
     ultimoEvento: "Embotellado completado",
     fecha: "2024-03-15",
     eventos: 4,
+    priceUSDC: 3200,
+    isSold: false,
   },
   {
     id: "dominio-eguren-2020",
@@ -148,6 +168,8 @@ const mockLotes = [
     ultimoEvento: "En crianza",
     fecha: "2024-04-20",
     eventos: 3,
+    priceUSDC: 1800,
+    isSold: false,
   },
   {
     id: "concha-y-toro-2020",
@@ -161,6 +183,8 @@ const mockLotes = [
     ultimoEvento: "Embotellado completado",
     fecha: "2024-05-10",
     eventos: 6,
+    priceUSDC: 3600,
+    isSold: false,
   },
   {
     id: "luce-2019",
@@ -174,6 +198,8 @@ const mockLotes = [
     ultimoEvento: "Crianza completada",
     fecha: "2024-04-15",
     eventos: 5,
+    priceUSDC: 3900,
+    isSold: false,
   },
   {
     id: "zuccardi-2020",
@@ -187,6 +213,8 @@ const mockLotes = [
     ultimoEvento: "En barrica",
     fecha: "2024-05-05",
     eventos: 4,
+    priceUSDC: 2400,
+    isSold: false,
   },
   {
     id: "bodegas-numanthia-2018",
@@ -200,6 +228,8 @@ const mockLotes = [
     ultimoEvento: "Embotellado completado",
     fecha: "2024-03-30",
     eventos: 6,
+    priceUSDC: 3100,
+    isSold: false,
   },
 ];
 
@@ -289,6 +319,16 @@ export default function LotesPage() {
                       {lote.wtt}
                     </div>
                   </div>
+
+                  {/* Price */}
+                  {lote.priceUSDC && (
+                    <div className="mb-4">
+                      <div className="text-sm text-gray-600 mb-1">Precio</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-black">
+                        {lote.priceUSDC.toLocaleString()} USDC
+                      </div>
+                    </div>
+                  )}
 
                   {/* Info */}
                   <div className="space-y-2 sm:space-y-3 mb-4">

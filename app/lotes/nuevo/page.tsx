@@ -50,6 +50,7 @@ export default function NuevoLotePage() {
     description: "",
     bottleCount: "",
     varietal: "",
+    priceUSDC: "",
   });
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
@@ -66,7 +67,9 @@ export default function NuevoLotePage() {
       formData.region.trim() &&
       formData.vintage.trim() &&
       formData.bottleCount.trim() &&
-      parseInt(formData.bottleCount) > 0
+      parseInt(formData.bottleCount) > 0 &&
+      formData.priceUSDC.trim() &&
+      parseFloat(formData.priceUSDC) > 0
     );
   };
 
@@ -107,6 +110,11 @@ export default function NuevoLotePage() {
         errors.bottleCount = "La cantidad de botellas es requerida";
       } else if (parseInt(formData.bottleCount) <= 0) {
         errors.bottleCount = "La cantidad debe ser mayor a 0";
+      }
+      if (!formData.priceUSDC.trim()) {
+        errors.priceUSDC = "El precio es requerido";
+      } else if (parseFloat(formData.priceUSDC) <= 0) {
+        errors.priceUSDC = "El precio debe ser mayor a 0";
       }
     } else if (currentStep === 2) {
       if (uploadedFiles.length === 0) {
@@ -501,6 +509,33 @@ export default function NuevoLotePage() {
                     <p className="mt-1 text-sm text-red-600">{validationErrors.bottleCount}</p>
                   )}
                 </div>
+
+                <div>
+                  <label
+                    htmlFor="priceUSDC"
+                    className="block text-sm font-medium text-black mb-2"
+                  >
+                    Precio (USDC) <span className="text-black">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    id="priceUSDC"
+                    name="priceUSDC"
+                    value={formData.priceUSDC}
+                    onChange={handleInputChange}
+                    placeholder="Ej: 1500.50"
+                    step="0.01"
+                    className={cn(
+                      "w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent",
+                      validationErrors.priceUSDC ? "border-red-500" : "border-black"
+                    )}
+                    required
+                    min="0.01"
+                  />
+                  {validationErrors.priceUSDC && (
+                    <p className="mt-1 text-sm text-red-600">{validationErrors.priceUSDC}</p>
+                  )}
+                </div>
               </div>
 
               <div>
@@ -672,6 +707,10 @@ export default function NuevoLotePage() {
                     <div className="flex justify-between">
                       <span className="text-black">Cantidad:</span>
                       <span className="font-semibold text-black">{formData.bottleCount || "N/A"} botellas</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-black">Precio (USDC):</span>
+                      <span className="font-semibold text-black">{formData.priceUSDC ? `${parseFloat(formData.priceUSDC).toLocaleString()} USDC` : "N/A"}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-black">Documentos:</span>

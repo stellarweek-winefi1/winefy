@@ -26,7 +26,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          Protege Tu Marca, <span className="text-black">Vinifica Autenticidad</span>
+          Vinifica: Protegé tu marca y elevá el valor de cada vino.
         </motion.h1>
 
         <motion.p
@@ -35,19 +35,22 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          Vinifica simplifica la trazabilidad de tus vinos
+          La forma más simple y confiable de asegurar trazabilidad y autenticidad.
         </motion.p>
 
-        <motion.p
-          className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto px-4 leading-relaxed"
+        <motion.div
+          className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto px-4 leading-relaxed space-y-3"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          Un sistema simple que certifica tus lotes, registra cada etapa de producción y 
-          permite a tus clientes verificar la autenticidad con un simple escaneo de QR. 
-          Diseñado para bodegas que valoran la transparencia y la confianza.
-        </motion.p>
+          <p>
+            Vinifica certifica tus lotes, registra cada etapa del proceso y permite que tus clientes verifiquen la autenticidad con solo escanear un QR.
+          </p>
+          <p>
+            Una solución que no solo aporta transparencia, sino que eleva la percepción y el valor de tus vinos al garantizar confianza en cada botella.
+          </p>
+        </motion.div>
 
         <motion.div
           className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 md:mb-20 px-4"
@@ -92,11 +95,11 @@ export default function HeroSection() {
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="/qr"
+              href="/buy"
               className="inline-flex items-center justify-center gap-2 bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg border-2 border-black hover:border-gray-600 w-full sm:w-auto transition-all duration-300 group relative overflow-hidden"
-              aria-label="Escanear código QR"
+              aria-label="Comprar lotes"
             >
-              <span className="relative z-10">Escanear QR</span>
+              <span className="relative z-10">Comprar Lotes</span>
               <motion.span
                 className="absolute inset-0 bg-gray-50"
                 initial={{ x: "-100%" }}
