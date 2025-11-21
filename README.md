@@ -1,6 +1,8 @@
 # 🍷 Vinifica – Plataforma de Digitalización y Trazabilidad de Vinos
 
-Vinifica es una plataforma para digitalizar los vinos que permite a los dueños de bodegas rastrear sus lotes en tiempo real para detectar cuándo se daña un vino y saber exactamente en qué parte del proceso ocurre. Los clientes pueden ver esta trazabilidad completa y, si lo desean, pueden comprar vinos directamente en USDC.
+Vinifica es una plataforma para digitalizar los vinos que permite a los dueños de bodegas rastrear sus lotes en tiempo real para detectar cuándo se daña un vino y saber exactamente en qué parte del proceso ocurre. Los clientes pueden ver esta trazabilidad completa y, en la Fase 2, podrán comprar vinos directamente en USDC.
+
+**Nota importante**: La **Fase 1 (MVP/Hackathon)** incluye digitalización, trazabilidad y visualización de precios en USDC, pero **NO incluye la implementación de pagos reales con USDC**. Los pagos con USDC se implementarán en la **Fase 2**.
 
 ---
 
@@ -14,7 +16,7 @@ La industria del vino enfrenta desafíos críticos de digitalización y trazabil
 - **Detección tardía de daños**: Los dueños no pueden detectar rápidamente cuándo y dónde se daña un vino en el proceso
 - **Trazabilidad fragmentada**: No existe una forma eficiente de rastrear exactamente en qué parte del proceso ocurre un problema
 - **Transparencia limitada para clientes**: Los clientes no pueden verificar la trazabilidad completa de los vinos que compran
-- **Falta de opciones de compra directa**: No existe una plataforma simple para que los clientes compren vinos certificados en USDC
+- **Falta de opciones de compra directa**: No existe una plataforma simple para que los clientes compren vinos certificados (los pagos en USDC se implementarán en Fase 2)
 
 ### For whom is this a problem?
 
@@ -27,8 +29,8 @@ La industria del vino enfrenta desafíos críticos de digitalización y trazabil
 **Para clientes y compradores:**
 - Quieren ver la trazabilidad completa de los vinos antes de comprar
 - Desean verificar la autenticidad y el origen del producto
-- Buscan una forma sencilla de comprar vinos certificados en USDC
-- Necesitan transparencia sobre cada etapa del proceso
+- Buscan transparencia sobre cada etapa del proceso
+- En la Fase 2, necesitarán una forma sencilla de comprar vinos certificados en USDC
 
 ### Why is this problem urgent or important now?
 
@@ -36,7 +38,7 @@ La industria del vino enfrenta desafíos críticos de digitalización y trazabil
 - La detección tardía de daños genera pérdidas significativas para los dueños de bodegas
 - Los clientes demandan cada vez más transparencia sobre el origen y trazabilidad de los vinos
 - La digitalización de productos premium es una tendencia creciente en la industria
-- Los pagos en criptomonedas (USDC) se están volviendo más aceptados para transacciones de alto valor
+- Los pagos en criptomonedas (USDC) se están volviendo más aceptados para transacciones de alto valor (implementación planificada para Fase 2)
 - La tecnología permite rastrear exactamente dónde y cuándo ocurre un problema en el proceso
 
 ---
@@ -52,7 +54,7 @@ La industria del vino enfrenta desafíos críticos de digitalización y trazabil
 - Requieren identificar exactamente dónde ocurre un daño (viñedo, producción, bodega, transporte, etc.)
 
 **Usuarios secundarios:**
-- **Clientes y compradores**: Quieren ver la trazabilidad completa y comprar vinos en USDC
+- **Clientes y compradores**: Quieren ver la trazabilidad completa (en Fase 2: comprar vinos en USDC)
 - **Distribuidores**: Necesitan verificar lotes y registrar eventos de recepción/transporte
 - **Consumidores finales**: Desean verificar autenticidad mediante QR codes
 
@@ -68,8 +70,8 @@ La industria del vino enfrenta desafíos críticos de digitalización y trazabil
 **Clientes y Compradores:**
 - Quieren ver la trazabilidad completa de los vinos antes de comprar
 - Desean verificar la autenticidad y el origen del producto
-- Buscan una forma sencilla de comprar vinos certificados en USDC
 - Necesitan transparencia sobre cada etapa del proceso
+- En la Fase 2, buscan una forma sencilla de comprar vinos certificados en USDC
 
 **Consumidores:**
 - Quieren verificar que el vino es auténtico mediante QR codes
@@ -99,16 +101,22 @@ La industria del vino enfrenta desafíos críticos de digitalización y trazabil
 
 ### 3.1 Main Idea
 
-Vinifica es una plataforma para digitalizar los vinos que permite a los dueños de bodegas rastrear sus lotes en tiempo real para detectar cuándo se daña un vino y saber exactamente en qué parte del proceso ocurre. Los clientes pueden ver esta trazabilidad completa y, si lo desean, pueden comprar vinos directamente en USDC.
+Vinifica es una plataforma para digitalizar los vinos que permite a los dueños de bodegas rastrear sus lotes en tiempo real para detectar cuándo se daña un vino y saber exactamente en qué parte del proceso ocurre. Los clientes pueden ver esta trazabilidad completa y, en la Fase 2, podrán comprar vinos directamente en USDC.
 
-**Core user journey:**
+**Core user journey (Fase 1 - MVP/Hackathon):**
 
-1. **Digitalización**: El dueño de la bodega registra un lote de vino con información completa (varietal, región, año, cantidad, precio en USDC), sube documentación certificada, y se genera un Certificado de Autenticidad único
+1. **Digitalización**: El dueño de la bodega registra un lote de vino con información completa (varietal, región, año, cantidad, precio en USDC para visualización), sube documentación certificada, y se genera un Certificado de Autenticidad único
 2. **Trazabilidad en Tiempo Real**: El dueño y su equipo registran eventos en cada etapa del proceso (viñedo, producción, bodega, almacenamiento, transporte, exportación). Si ocurre un daño, se registra inmediatamente con ubicación exacta
 3. **Detección de Daños**: El sistema permite detectar rápidamente cuándo se daña un vino y en qué parte exacta del proceso, permitiendo acciones correctivas inmediatas
 4. **Visualización para Clientes**: Los clientes pueden ver la trazabilidad completa de cualquier lote, verificando cada etapa del proceso
-5. **Compra en USDC**: Los clientes pueden comprar lotes certificados directamente en USDC desde la plataforma
+5. **Visualización de Precios**: Los clientes pueden ver los precios en USDC de los lotes disponibles (pagos reales implementados en Fase 2)
 6. **Verificación por QR**: Cada botella tiene un QR único que, al ser escaneado, muestra la trazabilidad completa verificable
+
+**Fase 2 (Post-Hackathon):**
+- Implementación de pagos reales con USDC utilizando Stellar
+- Integración con wallets (Freighter, WalletConnect)
+- Procesamiento de transacciones en blockchain
+- Transferencia de ownership tras la compra
 
 ### 3.2 Why Stellar?
 
@@ -147,17 +155,19 @@ Vinifica es una plataforma para digitalizar los vinos que permite a los dueños 
 
 ---
 
-## 4. Core Features (Planned for the Hackathon)
+## 4. Core Features
+
+### Fase 1 (MVP/Hackathon)
 
 ### Feature 1: Digitalización del Lote
 **What the user can do:**
-- Los dueños de bodegas registran información completa del lote: varietal, región, año, cantidad, precio en USDC
+- Los dueños de bodegas registran información completa del lote: varietal, región, año, cantidad, precio en USDC (para visualización)
 - Suben documentación certificada (certificados de origen, análisis, etc.)
 - Se genera un Certificado de Autenticidad único para ese lote
 - El lote queda digitalizado y listo para rastreo en tiempo real
 
 **How we will know if it's working:**
-- Un dueño puede completar el formulario de registro de lote con precio en USDC
+- Un dueño puede completar el formulario de registro de lote con precio en USDC (mostrado pero no procesado)
 - El Certificado de Autenticidad se genera exitosamente
 - El lote aparece en el dashboard con su certificado verificado
 - Los documentos quedan asociados al lote
@@ -203,21 +213,33 @@ Vinifica es una plataforma para digitalizar los vinos que permite a los dueños 
 - La información es transparente y verificable
 - Los clientes pueden verificar autenticidad antes de comprar
 
-### Feature 5: Compra de Vinos en USDC
-**What the user can do:**
+### Feature 5: Visualización de Lotes y Precios en USDC (Fase 1)
+**What the user can do (Fase 1):**
 - Los clientes pueden ver todos los lotes disponibles con sus precios en USDC
-- Pueden comprar lotes certificados directamente desde la plataforma
-- Compra rápida con un clic o compra con confirmación de detalles
-- Una vez comprado, el lote se marca como vendido
+- Pueden ver la interfaz de compra y simular el proceso de compra
+- Los lotes se pueden marcar como "vendidos" para demostración (sin procesamiento de pago real)
 
 **How we will know if it's working:**
 - Los clientes pueden ver los precios en USDC en cada lote
-- Pueden hacer clic en "Comprar Ahora" para compra directa
-- Pueden ver detalles antes de confirmar la compra
-- Después de la compra, el lote desaparece de la lista de disponibles
-- Se muestra una confirmación de compra exitosa
+- Pueden acceder a la página de compra y ver la interfaz
+- La simulación de compra funciona correctamente
+- **Nota**: Los pagos reales con USDC se implementarán en la Fase 2
 
-### Feature 6: QR para Autenticidad (para Consumidores)
+### Feature 6: Compra de Vinos en USDC (Fase 2 - Post-Hackathon)
+**What the user will be able to do (Fase 2):**
+- Los clientes podrán comprar lotes certificados directamente en USDC usando Stellar
+- Integración con wallets (Freighter, WalletConnect) para procesar pagos
+- Transferencia de ownership del lote tras la compra exitosa
+- Procesamiento de transacciones en blockchain de Stellar
+- Registro inmutable de la compra en blockchain
+
+**How we will know if it's working (Fase 2):**
+- Los pagos se procesan exitosamente en Stellar usando USDC
+- Las transacciones se confirman en blockchain
+- El ownership del lote se transfiere al comprador
+- La compra queda registrada de forma inmutable
+
+### Feature 7: QR para Autenticidad (para Consumidores)
 **What the user can do:**
 - Cada lote/botella genera un QR único
 - Al escanear el QR, el usuario ve la trazabilidad completa del lote
@@ -257,12 +279,12 @@ Vinifica es una plataforma para digitalizar los vinos que permite a los dueños 
   - WalletConnect para soporte de múltiples wallets
 - **QR Generation**: Librería para generar QR codes únicos
 
-**Pages:**
+**Pages (Fase 1):**
 - `/` - Homepage con información sobre digitalización y trazabilidad
-- `/lotes` - Lista de todos los lotes certificados con precios en USDC
-- `/lotes/nuevo` - Formulario para registrar nuevo lote (con precio en USDC)
+- `/lotes` - Lista de todos los lotes certificados con precios en USDC (visualización)
+- `/lotes/nuevo` - Formulario para registrar nuevo lote (con precio en USDC para visualización)
 - `/lotes/[id]` - Detalle de lote con timeline de eventos y detección de daños
-- `/buy` - Página para comprar lotes disponibles en USDC
+- `/buy` - Página para ver lotes disponibles con precios en USDC (interfaz de compra, pagos reales en Fase 2)
 - `/qr/[code]` - Vista pública para escanear QR (sin login requerido)
 - `/eventos/registrar` - Formulario para registrar eventos de trazabilidad y daños
 
@@ -354,23 +376,37 @@ Vinifica es una plataforma para digitalizar los vinos que permite a los dueños 
 
 ---
 
-## 6. Success Criteria for the Hackathon
+## 6. Success Criteria
+
+### Fase 1 (MVP/Hackathon)
 
 By the end of Stellar Hack+, we will consider our MVP successful if:
 
-- [ ] **Un dueño puede digitalizar un lote**: Complete el formulario de registro con precio en USDC, suba documentación, y se genere exitosamente un Certificado de Autenticidad
+- [ ] **Un dueño puede digitalizar un lote**: Complete el formulario de registro con precio en USDC (para visualización), suba documentación, y se genere exitosamente un Certificado de Autenticidad
 - [ ] **Se pueden registrar eventos de trazabilidad y detectar daños**: Los eventos se registran en cada etapa del proceso (viñedo, producción, bodega, transporte, etc.) y si hay un daño, se detecta inmediatamente con ubicación exacta
 - [ ] **El dueño puede ver exactamente dónde ocurre un daño**: Si un vino se daña, el sistema muestra en qué parte exacta del proceso ocurrió el problema
 - [ ] **Los clientes pueden ver la trazabilidad completa**: Los clientes pueden acceder a la información de trazabilidad de cualquier lote disponible
-- [ ] **Los clientes pueden comprar lotes en USDC**: Los clientes pueden ver precios en USDC y comprar lotes certificados directamente desde la plataforma
+- [ ] **Los clientes pueden ver precios en USDC**: Los clientes pueden ver los precios en USDC y la interfaz de compra (pagos reales implementados en Fase 2)
 - [ ] **Un QR permite ver información real del lote**: Se genera un QR único para un lote, y al escanearlo se muestra la trazabilidad completa verificable
-- [ ] **Se demuestra un flujo completo**: Crear lote → registrar eventos → detectar daño → visualizar trazabilidad → comprar en USDC → escanear QR, todo funcionando end-to-end
+- [ ] **Se demuestra un flujo completo**: Crear lote → registrar eventos → detectar daño → visualizar trazabilidad → ver precios en USDC → escanear QR, todo funcionando end-to-end
 
-**Stretch Goals:**
+**Nota importante**: Los pagos reales con USDC NO están incluidos en la Fase 1. Se implementarán en la Fase 2.
+
+**Stretch Goals (Fase 1):**
 - [ ] Notificaciones en tiempo real cuando se detecta un daño
 - [ ] App móvil liviana para registrar eventos y escanear QR codes
 - [ ] Integración con sistemas existentes de bodegas
 - [ ] Análisis predictivo para prevenir daños
+
+### Fase 2 (Post-Hackathon)
+
+Los siguientes criterios se implementarán después del hackathon:
+
+- [ ] **Implementación de pagos reales con USDC**: Integración completa con Stellar para procesar pagos en USDC
+- [ ] **Integración con wallets**: Soporte para Freighter, WalletConnect y otros wallets compatibles con Stellar
+- [ ] **Transferencia de ownership**: El ownership del lote se transfiere automáticamente al comprador tras el pago exitoso
+- [ ] **Registro inmutable de compras**: Todas las compras quedan registradas en blockchain de Stellar
+- [ ] **Procesamiento de transacciones**: Manejo completo de transacciones, errores y confirmaciones en blockchain
 
 ---
 
