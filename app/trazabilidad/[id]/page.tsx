@@ -1,53 +1,224 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Wine, Calendar, MapPin, QrCode, Shield, Eye } from "lucide-react";
+import {
+  Wine,
+  Calendar,
+  QrCode,
+  Shield,
+  Eye,
+  RefreshCw,
+  CircleAlert,
+} from "lucide-react";
 import Link from "next/link";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useParams, useSearchParams } from "next/navigation";
 
-const mockLote = {
-  id: "demo",
-  nombre: "Cabernet Sauvignon 2023",
-  varietal: "Cabernet Sauvignon",
-  año: 2023,
-  cantidad: 500,
-  region: "Valle de Colchagua, Chile",
-  estado: "En producción",
-  descripcion: "Lote premium de Cabernet Sauvignon producido en el Valle de Colchagua. Cosecha manual y fermentación controlada.",
-  productor: "Viña Premium Chile",
+type BottleTraceabilityResponse = {
+  success?: boolean;
+  bottle?: BottleData | null;
+  events?: TraceEvent[];
+  eventCount?: number;
+  error?: string;
 };
 
-const mockEvents = [
-  {
-    id: 1,
-    evento: "Cosecha",
-    fecha: "2024-03-15",
-    descripcion: "Cosecha manual completada en las primeras horas de la mañana",
-    verificado: true,
-  },
-  {
-    id: 2,
-    evento: "Fermentación iniciada",
-    fecha: "2024-03-20",
-    descripcion: "Inicio de fermentación en tanques de acero inoxidable",
-    verificado: true,
-  },
-  {
-    id: 3,
-    evento: "Control de calidad",
-    fecha: "2024-04-10",
-    descripcion: "Análisis químico y sensorial completado",
-    verificado: true,
-  },
-  {
-    id: 4,
-    evento: "Embotellado",
-    fecha: "2024-05-15",
-    descripcion: "Proceso de embotellado completado con estándares de calidad",
-    verificado: true,
-  },
-];
+type BottleData = {
+  id: string;
+  bottleId: string;
+  lotId: string | null;
+  bottleNumber: number | null;
+  wineryAddress: string | null;
+  currentOwnerAddress: string | null;
+  wineName: string | null;
+  vintage: number | null;
+  region: string | null;
+  country: string | null;
+  metadataUri: string | null;
+  qrCode: string | null;
+  stellarTokenAddress: string | null;
+  createdAt: string | null;
+  updatedAt: string | null;
+};
+
+type TraceEvent = {
+  id: string;
+  eventType: string;
+  actorAddress: string | null;
+  description: string | null;
+  timestamp: string;
+  onChainTxHash: string | null;
+};
+
+const formatDate = (timestamp?: string | null) => {
+  if (!timestamp) return "Fecha desconocida";
+  return new Date(timestamp).toLocaleDateString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+const prettifyEventType = (eventType?: string) => {
+  if (!eventType) return "Evento";
+  return eventType
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+const shortenAddress = (value?: string | null, chars = 6) => {
+  if (!value) return "Dato no disponible";
+  if (value.length <= chars * 2) return value;
+  return `${value.slice(0, chars)}…${value.slice(-chars)}`;
+};
+
+const LoadingState = () => (
+  <div className="space-y-4">
+    <div className="h-6 w-40 bg-gray-200 rounded animate-pulse" />
+    <div className="h-4 w-full bg-gray-100 rounded animate-pulse" />
+    <div className="h-4 w-3/4 bg-gray-100 rounded animate-pulse" />
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      {Array.from({ length: 3 }).map((_, idx) => (
+        <div key={`skeleton-${idx}`} className="space-y-2">
+          <div className="h-3 w-20 bg-gray-100 rounded animate-pulse" />
+          <div className="h-5 w-full bg-gray-100 rounded animate-pulse" />
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const ErrorState = ({
+  message,
+  onRetry,
+}: {
+  message: string;
+  onRetry: () => void;
+}) => (
+  <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <div className="flex items-center gap-2 text-red-700 font-semibold">
+      <CircleAlert className="w-5 h-5" />
+      <span>{message}</span>
+    </div>
+    <button
+      type="button"
+      onClick={onRetry}
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-colors"
+    >
+      <RefreshCw className="w-4 h-4" />
+      Reintentar
+    </button>
+  </div>
+);
 
 export default function TrazabilidadPage() {
+  const params = useParams<{ id: string }>();
+  const searchParams = useSearchParams();
+
+  const qrCodeParam = searchParams.get("qr");
+  const routeIdentifier = Array.isArray(params?.id) ? params.id[0] : params?.id;
+  const identifierValue = (qrCodeParam || routeIdentifier || "").trim();
+  const identifierType = qrCodeParam ? "qrCode" : "bottleId";
+
+  const [bottle, setBottle] = useState<BottleData | null>(null);
+  const [events, setEvents] = useState<TraceEvent[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const fetchTraceability = useCallback(async () => {
+    if (!identifierValue) {
+      setErrorMessage("Falta el identificador o QR de la botella.");
+      setIsLoading(false);
+      return;
+    }
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      setErrorMessage(
+        "Variables de entorno de Supabase no configuradas. Revisa tu archivo .env.local.",
+      );
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      setErrorMessage(null);
+
+      const endpoint = `${supabaseUrl}/functions/v1/get-bottle-traceability?${identifierType}=${encodeURIComponent(identifierValue)}`;
+      const response = await fetch(endpoint, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${supabaseAnonKey}`,
+        },
+      });
+
+      const payload = (await response.json()) as BottleTraceabilityResponse;
+
+      if (!response.ok) {
+        throw new Error(payload.error || "No pudimos obtener la trazabilidad.");
+      }
+
+      if (!payload.bottle) {
+        throw new Error("No encontramos datos para esta botella.");
+      }
+
+      setBottle(payload.bottle);
+      setEvents(payload.events || []);
+    } catch (error) {
+      setBottle(null);
+      setEvents([]);
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Ocurrió un error inesperado al cargar la trazabilidad.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }, [identifierType, identifierValue]);
+
+  useEffect(() => {
+    fetchTraceability();
+  }, [fetchTraceability]);
+
+  const timelineEvents = useMemo(
+    () =>
+      events.map((event, index) => ({
+        id: event.id,
+        title: prettifyEventType(event.eventType),
+        description:
+          event.description ||
+          "Evento registrado sin descripción detallada disponible.",
+        date: formatDate(event.timestamp),
+        verified: event.eventType !== "scanned",
+        index,
+      })),
+    [events],
+  );
+
+  const bottleLocation = useMemo(() => {
+    if (!bottle) return "Ubicación no disponible";
+    const parts = [bottle.region, bottle.country].filter(Boolean);
+    return parts.length ? parts.join(", ") : "Ubicación no disponible";
+  }, [bottle]);
+
+  const heroDescription = useMemo(() => {
+    if (!bottle) {
+      return "Cargando trazabilidad verificada en la red Stellar.";
+    }
+
+    const pieces = [
+      bottle.wineName ? `Botella ${bottle.wineName}` : null,
+      bottleLocation !== "Ubicación no disponible" ? bottleLocation : null,
+      bottle.bottleNumber ? `N.º ${bottle.bottleNumber}` : null,
+      bottle.lotId ? `Lote ${bottle.lotId}` : null,
+    ].filter(Boolean);
+
+    return pieces.join(" • ") || "Detalle de botella registrado en la red.";
+  }, [bottle, bottleLocation]);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Header */}
@@ -79,33 +250,45 @@ export default function TrazabilidadPage() {
                   <Wine className="w-10 h-10" />
                   <div>
                     <h1 className="text-2xl sm:text-3xl font-bold">
-                      {mockLote.nombre}
+                      {bottle?.wineName || "Botella en verificación"}
                     </h1>
-                    <p className="text-gray-300">{mockLote.productor}</p>
+                    <p className="text-gray-300">
+                      {shortenAddress(bottle?.wineryAddress)}
+                    </p>
                   </div>
                 </div>
                 <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-green-400 text-black">
                   <Shield className="w-4 h-4 mr-2" />
-                  Verificado
+                  {events.length ? "Eventos registrados" : "Esperando eventos"}
                 </span>
               </div>
 
-              <p className="text-gray-200 mb-6">{mockLote.descripcion}</p>
+              {isLoading ? (
+                <LoadingState />
+              ) : (
+                <>
+                  <p className="text-gray-200 mb-6">{heroDescription}</p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                <div>
-                  <p className="text-xs text-gray-400 mb-1">Varietal</p>
-                  <p className="font-semibold">{mockLote.varietal}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 mb-1">Año</p>
-                  <p className="font-semibold">{mockLote.año}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 mb-1">Región</p>
-                  <p className="font-semibold">{mockLote.region}</p>
-                </div>
-              </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <div>
+                      <p className="text-xs text-gray-400 mb-1">Cosecha</p>
+                      <p className="font-semibold">
+                        {bottle?.vintage ?? "Sin dato"}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-400 mb-1">Ubicación</p>
+                      <p className="font-semibold">{bottleLocation}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-400 mb-1">Propietario</p>
+                      <p className="font-semibold">
+                        {shortenAddress(bottle?.currentOwnerAddress)}
+                      </p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Content */}
@@ -119,11 +302,18 @@ export default function TrazabilidadPage() {
                       Página Pública de Trazabilidad
                     </p>
                     <p className="text-sm text-blue-700">
-                      Esta página demostrativa para el hackathon muestra la trazabilidad completa del lote desde la cosecha hasta el embotellado, verificada en la blockchain de Stellar.
+                      Consulta en tiempo real la historia completa de la botella
+                      usando los Edge Functions de Supabase.
                     </p>
                   </div>
                 </div>
               </div>
+
+              {errorMessage && (
+                <div className="mb-8">
+                  <ErrorState message={errorMessage} onRetry={fetchTraceability} />
+                </div>
+              )}
 
               {/* Timeline */}
               <div className="mb-8">
@@ -134,47 +324,66 @@ export default function TrazabilidadPage() {
                   </h2>
                 </div>
 
-                <div className="space-y-6">
-                  {mockEvents.map((event, index) => (
-                    <motion.div
-                      key={event.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex gap-4"
-                    >
-                      <div className="flex flex-col items-center">
-                        <div className={`w-4 h-4 rounded-full flex-shrink-0 ${event.verificado ? 'bg-green-500' : 'bg-gray-300'}`} />
-                        {index < mockEvents.length - 1 && (
-                          <div className="w-0.5 h-full bg-gray-300 mt-2 min-h-[60px]" />
-                        )}
+                {isLoading ? (
+                  <div className="space-y-4">
+                    {Array.from({ length: 3 }).map((_, index) => (
+                      <div
+                        key={`loading-event-${index}`}
+                        className="bg-gray-50 border border-gray-100 rounded-lg p-4 animate-pulse"
+                      >
+                        <div className="h-4 w-1/3 bg-gray-200 rounded mb-2" />
+                        <div className="h-3 w-1/4 bg-gray-100 rounded mb-3" />
+                        <div className="h-3 w-full bg-gray-100 rounded" />
                       </div>
-                      <div className="flex-1 pb-4">
-                        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                          <div className="flex items-start justify-between mb-2">
-                            <h3 className="font-bold text-black text-lg">
-                              {event.evento}
-                            </h3>
-                            {event.verificado && (
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
-                                <Shield className="w-3 h-3 mr-1" />
-                                Verificado
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-sm text-gray-500 mb-2">
-                            {new Date(event.fecha).toLocaleDateString('es-ES', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
-                          </p>
-                          <p className="text-gray-700">{event.descripcion}</p>
+                    ))}
+                  </div>
+                ) : timelineEvents.length ? (
+                  <div className="space-y-6">
+                    {timelineEvents.map((event, index) => (
+                      <motion.div
+                        key={event.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        className="flex gap-4"
+                      >
+                        <div className="flex flex-col items-center">
+                          <div
+                            className={`w-4 h-4 rounded-full flex-shrink-0 ${
+                              event.verified ? "bg-green-500" : "bg-gray-300"
+                            }`}
+                          />
+                          {index < timelineEvents.length - 1 && (
+                            <div className="w-0.5 h-full bg-gray-300 mt-2 min-h-[60px]" />
+                          )}
                         </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+                        <div className="flex-1 pb-4">
+                          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div className="flex items-start justify-between mb-2">
+                              <h3 className="font-bold text-black text-lg">
+                                {event.title}
+                              </h3>
+                              {event.verified && (
+                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                  <Shield className="w-3 h-3 mr-1" />
+                                  On-chain
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-sm text-gray-500 mb-2">
+                              {event.date}
+                            </p>
+                            <p className="text-gray-700">{event.description}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-gray-50 border border-dashed border-gray-200 rounded-lg p-6 text-center text-gray-500">
+                    No hay eventos registrados todavía para esta botella.
+                  </div>
+                )}
               </div>
 
               {/* QR Section */}
@@ -184,11 +393,20 @@ export default function TrazabilidadPage() {
                   Código QR del Lote
                 </h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  ID del Lote: <span className="font-mono font-semibold">{mockLote.id}</span>
+                  ID del Lote:{" "}
+                  <span className="font-mono font-semibold">
+                    {bottle?.lotId || "Sin asignar"}
+                  </span>
                 </p>
                 <div className="bg-white border-2 border-gray-300 rounded-lg p-6 inline-block">
                   <div className="w-32 h-32 flex items-center justify-center">
-                    <QrCode className="w-24 h-24 text-gray-400" />
+                    {bottle?.qrCode ? (
+                      <div className="text-xs text-gray-600 break-all">
+                        {bottle.qrCode}
+                      </div>
+                    ) : (
+                      <QrCode className="w-24 h-24 text-gray-400" />
+                    )}
                   </div>
                 </div>
               </div>
@@ -198,7 +416,7 @@ export default function TrazabilidadPage() {
           {/* Footer Info */}
           <div className="text-center">
             <p className="text-sm text-gray-600 mb-2">
-              Powered by Winefy - Trazabilidad verificada en Stellar Blockchain
+              Powered by Winefy - Trazabilidad verificada en Stellar
             </p>
             <Link
               href="/"
