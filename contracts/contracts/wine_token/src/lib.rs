@@ -11,6 +11,7 @@ use storage::{
     read_wine_lot_metadata, write_wine_lot_metadata,
     read_metadata, write_metadata,
     read_balance, spend_balance, receive_balance,
+    read_status, write_status,
     INSTANCE_BUMP_AMOUNT, INSTANCE_LIFETIME_THRESHOLD,
 };
 
@@ -98,6 +99,49 @@ impl WineToken {
             .instance()
             .extend_ttl(INSTANCE_LIFETIME_THRESHOLD, INSTANCE_BUMP_AMOUNT);
         read_administrator(&e)
+    }
+
+    /// Update wine lot status (only admin/winery can call)
+    ///
+    /// # Arguments
+    /// * `status` - New status string (e.g., "harvested", "fermented", "aged", "bottled", "shipped", "available", "sold_out", "recalled")
+    /// * `location` - Optional location string
+    /// * `previous_status` - Optional previous status for audit trail
+    pub fn set_status(
+        e: Env,
+        status: String,
+        location: Option<String>,
+        previous_status: Option<String>,
+    ) {
+        let admin = read_administrator(&e);
+        admin.require_auth();
+
+        e.storage()
+            .instance()
+            .extend_ttl(INSTANCE_LIFETIME_THRESHOLD, INSTANCE_BUMP_AMOUNT);
+
+        let old_status = read_status(&e);
+        write_status(&e, &status);
+
+        // Emit status change event
+        e.events().publish(("status_update", "status"), status.clone());
+        if let Some(loc) = location {
+            e.events().publish(("status_update", "location"), loc);
+        }
+        if let Some(prev) = previous_status {
+            e.events().publish(("status_update", "previous_status"), prev);
+        } else if let Some(prev) = old_status {
+            e.events().publish(("status_update", "previous_status"), prev);
+        }
+        e.events().publish(("status_update", "timestamp"), e.ledger().timestamp());
+    }
+
+    /// Get current wine lot status
+    pub fn get_status(e: Env) -> Option<String> {
+        e.storage()
+            .instance()
+            .extend_ttl(INSTANCE_LIFETIME_THRESHOLD, INSTANCE_BUMP_AMOUNT);
+        read_status(&e)
     }
 }
 

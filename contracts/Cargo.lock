@@ -1363,16 +1363,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "soroswap-library"
-version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4365cc0e03f153852d78228a5ea488447b69c974ec35084830c03f5aebb74a3f"
-dependencies = [
- "num-integer",
- "soroban-sdk",
-]
-
-[[package]]
 name = "spin"
 version = "0.9.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1523,34 +1513,6 @@ name = "version_check"
 version = "0.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
-
-[[package]]
-name = "vinifica-factory"
-version = "0.1.0"
-dependencies = [
- "common",
- "soroban-sdk",
- "vinifica-strategy-core",
- "vinifica-vault",
-]
-
-[[package]]
-name = "vinifica-strategy-core"
-version = "0.2.0"
-dependencies = [
- "soroban-sdk",
-]
-
-[[package]]
-name = "vinifica-vault"
-version = "0.1.0"
-dependencies = [
- "common",
- "soroban-sdk",
- "soroban-token-sdk",
- "soroswap-library",
- "vinifica-strategy-core",
-]
 
 [[package]]
 name = "wasi"

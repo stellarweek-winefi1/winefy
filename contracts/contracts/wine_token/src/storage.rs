@@ -1,4 +1,4 @@
-use soroban_sdk::{Address, Env};
+use soroban_sdk::{Address, Env, String};
 use soroban_token_sdk::metadata::TokenMetadata;
 use common::models::WineLotMetadata;
 
@@ -15,6 +15,7 @@ pub enum DataKey {
     WineLotMetadata,
     Balance(Address),
     Metadata,
+    Status,
 }
 
 // Admin functions
@@ -84,4 +85,13 @@ pub fn spend_balance(e: &Env, addr: Address, amount: i128) {
     write_balance(e, addr, balance - amount);
 }
 
+// Status functions
+pub fn read_status(e: &Env) -> Option<String> {
+    let key = DataKey::Status;
+    e.storage().instance().get(&key)
+}
 
+pub fn write_status(e: &Env, status: &String) {
+    let key = DataKey::Status;
+    e.storage().instance().set(&key, status);
+}
